@@ -77,7 +77,7 @@ export const ROASTERY: RoasteryData = {
   contacts: {
     phone: "+375 29 123-45-67",
     address: "Минск, ул. Короля, 9",
-    telegram: "@kvarta_coffee",
+    telegram: "@kvarta_coffee_2026_bot",
     instagram: "@kvarta.coffee",
   },
 };

@@ -4,7 +4,10 @@ import { UI } from "@/styles/ui";
 
 export function Footer() {
   return (
-    <footer id="contacts" className="border-t border-[#1a1a1a] bg-[#000000] py-12 text-[#ffffff]">
+    <footer
+      id="contacts"
+      className="border-t border-[#1a1a1a] bg-[#000000] pt-12 pb-5 text-[#ffffff]"
+    >
       <div className={UI.container}>
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5 font-sans">
