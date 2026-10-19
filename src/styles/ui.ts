@@ -1,62 +1,70 @@
 export const UI = {
   section: {
-    ink: "border-b border-charcoal bg-ink text-cream section-padding",
-    charcoal: "border-b border-line bg-charcoal text-cream section-padding",
-    bean: "border-b border-charcoal bg-bean text-cream section-padding",
-    roast: "border-b border-charcoal bg-roast text-cream section-padding",
-    cream: "border-b border-sand bg-cream text-ink section-padding",
+    dark: "border-b border-[#1a1a1a] bg-[#0e1311] text-[#ffffff] section-padding",
+    manifesto: "border-t border-b border-[#1a1a1a] bg-[#0e1311] text-[#ffffff] section-padding",
+    linen: "border-b border-[#dfdbca] bg-[#f6f7f2] text-[#0e1311] section-padding",
   },
   container: "container-page",
   typography: {
-    display: "font-display text-cream",
-    headline: "font-headline text-cream",
-    headlineLight: "font-headline text-ink",
-    title: "font-title text-bean",
-    titleDark: "font-title text-cream",
-    quote: "font-quote text-cream-dim",
-    body: "font-body text-soft",
-    bodyLight: "font-body text-mocha",
-    bodyDim: "font-body text-cream-dim",
-    bodySm: "font-body-sm text-soft",
-    bodySmLight: "font-body-sm text-mocha",
-    label: "font-label text-muted",
+    display: "font-serif text-[34px] sm:text-[42px] font-light italic leading-[1.2] text-[#ffffff]",
+    headingLg:
+      "font-serif text-[28px] sm:text-[36px] font-light italic leading-[1.2] text-[#ffffff]",
+    heading:
+      "font-serif text-[24px] sm:text-[30px] font-normal italic leading-[1.25] text-[#ffffff]",
+    headingLight:
+      "font-serif text-[28px] sm:text-[36px] font-normal italic leading-[1.2] text-[#0e1311]",
+    headingSm: "font-serif text-[21px] font-normal italic leading-[1.25] text-[#ffffff]",
+    productTitle: "font-serif text-[24px] font-normal italic leading-[1.2] text-[#ffffff]",
+    productTitleLight: "font-serif text-[24px] font-normal italic leading-[1.2] text-[#0e1311]",
+    manifesto:
+      "font-serif text-[26px] sm:text-[32px] md:text-[36px] font-light italic leading-[1.25] text-[#ffffff]",
+    body: "font-sans text-[16px] font-normal leading-[1.5] text-[#b3b3b3]",
+    bodyLight: "font-sans text-[16px] font-normal leading-[1.5] text-[#333333]",
+    bodySm: "font-sans text-[14px] font-normal leading-[1.5] text-[#b3b3b3]",
+    bodySmLight: "font-sans text-[14px] font-normal leading-[1.5] text-[#808080]",
+    caption: "font-sans text-[11px] font-semibold uppercase tracking-[0.08em] text-[#b3b3b3]",
+    captionDark: "font-sans text-[11px] font-semibold uppercase tracking-[0.08em] text-[#333333]",
+    linkItalic:
+      "font-serif text-[16px] font-normal italic text-[#ffffff] transition-colors hover:text-[#faf080] hover:underline",
+  },
+  badge: {
+    citron:
+      "inline-flex items-center rounded-[4px] bg-[#faf080] px-2 py-1 font-sans text-[11px] font-medium uppercase tracking-[0.08em] text-[#0e1311]",
+    lichen:
+      "inline-flex items-center rounded-[4px] bg-[#cadcac] px-2 py-1 font-sans text-[11px] font-medium uppercase tracking-[0.08em] text-[#0e1311]",
+    gold: "inline-flex items-center rounded-[4px] border border-[#cfa53b] px-2 py-1 font-sans text-[11px] font-medium uppercase tracking-[0.08em] text-[#ffffff]",
+  },
+  pill: {
+    price:
+      "inline-flex items-center rounded-[60px] bg-[#f6f7f2] px-4 py-1.5 font-sans text-[13px] font-medium text-[#0e1311]",
   },
   button: {
     primary:
-      "inline-flex items-center justify-center rounded-pill bg-crema px-8 py-4 text-base font-semibold text-ink transition-colors hover:bg-caramel",
+      "inline-flex items-center justify-center rounded-[4px] bg-[#f6f7f2] px-6 py-3.5 font-sans text-[14px] font-medium text-[#0e1311] transition-colors hover:bg-[#faf080]",
     primarySm:
-      "inline-flex items-center justify-center rounded-pill bg-crema px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-caramel",
+      "inline-flex items-center justify-center rounded-[4px] bg-[#f6f7f2] px-4 py-2 font-sans text-[13px] font-medium text-[#0e1311] transition-colors hover:bg-[#faf080]",
     ghost:
-      "inline-flex items-center justify-center rounded-pill border border-line-strong bg-transparent px-7 py-3.5 text-base font-medium text-cream transition-colors hover:border-crema",
-    action:
-      "inline-flex items-center justify-center rounded-pill bg-bean px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-roast",
+      "inline-flex items-center justify-center rounded-[4px] border border-[#333333] bg-transparent px-5 py-3 font-sans text-[14px] font-medium text-[#ffffff] transition-colors hover:border-[#b3b3b3] hover:text-[#ffffff]",
   },
   card: {
-    product: "flex flex-col justify-between rounded-card border border-sand bg-paper p-6 text-ink",
-    darkPanel: "rounded-panel border border-line bg-charcoal p-7 sm:p-11 lg:p-14 text-cream",
-    darkCard: "rounded-card border border-line bg-charcoal/40 p-8 text-cream",
-    lightPanel:
-      "flex flex-col justify-between rounded-panel border border-sand bg-paper p-8 sm:p-10 text-ink",
+    product:
+      "flex flex-col justify-between rounded-[4px] border border-[#1a1a1a] bg-[#0e1311] p-5 text-[#ffffff]",
+    panel: "rounded-[4px] border border-[#1a1a1a] bg-[#0e1311] p-6 sm:p-10 text-[#ffffff]",
+    subscription: "rounded-[4px] border border-[#cfa53b] bg-[#1a1a1a] p-6 sm:p-10 text-[#ffffff]",
+    linen: "rounded-[4px] border border-[#dfdbca] bg-[#f6f7f2] p-6 sm:p-10 text-[#0e1311]",
   },
-  chip: {
-    note: "rounded-pill bg-oat px-3 py-1 font-sans text-xs font-medium text-bean",
-    origin:
-      "rounded-pill bg-ink/80 px-2.5 py-1 font-sans text-[11px] font-medium tracking-wide text-cream backdrop-blur-sm",
-    badge: "rounded-pill bg-bean px-3.5 py-1 font-label text-caramel",
+  input:
+    "w-full rounded-[4px] border border-[#333333] bg-[#1a1a1a] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#faf080] focus:outline-none",
+  optionButton: {
+    base: "rounded-[4px] border px-4 py-2.5 font-sans text-[13px] font-medium transition-colors",
+    active: "border-[#faf080] bg-[#faf080] text-[#0e1311]",
+    inactive:
+      "border-[#333333] bg-[#1a1a1a] text-[#b3b3b3] hover:border-[#808080] hover:text-[#ffffff]",
   },
-  optionPill: {
-    base: "rounded-control border px-4 py-3 text-sm font-semibold transition-colors",
-    active: "border-crema bg-crema text-ink",
-    inactive: "border-line-strong bg-transparent text-cream hover:border-crema",
-    selected: "border-crema bg-crema text-ink",
-  },
-  inputPill:
-    "w-full rounded-pill border border-[#8a5c3c] bg-bean px-5 py-3.5 text-cream placeholder-[#bfa58a] focus:border-caramel focus:outline-none",
   field: {
-    inputPill:
-      "w-full rounded-pill border border-[#8a5c3c] bg-bean px-5 py-3.5 text-cream placeholder-[#bfa58a] focus:border-caramel focus:outline-none",
     textarea:
-      "w-full rounded-control border border-[#8a5c3c] bg-bean px-5 py-3.5 text-cream placeholder-[#bfa58a] focus:border-caramel focus:outline-none",
-    feedback: "rounded-control border border-caramel bg-bean p-4 text-sm text-soft",
+      "w-full rounded-[4px] border border-[#333333] bg-[#1a1a1a] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#faf080] focus:outline-none",
+    feedback:
+      "rounded-[4px] border border-[#cfa53b] bg-[#1a1a1a] p-4 font-sans text-sm text-[#dfdbca]",
   },
 } as const;

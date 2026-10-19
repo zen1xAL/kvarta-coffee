@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-serif",
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
+const cormorant = Cormorant_Garamond({
+  variable: "--font-id00-serif",
+  subsets: ["cyrillic", "latin"],
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   display: "swap",
 });
 
-const manrope = Manrope({
-  variable: "--font-sans",
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
+const inter = Inter({
+  variable: "--font-gt-america-standard",
+  subsets: ["cyrillic", "latin"],
+  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: "https://kvarta-coffee.by",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?q=80&w=1200&auto=format&fit=crop",
+        url: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1200&auto=format&fit=crop",
         width: 1200,
         height: 630,
         alt: "Кварта — Обжарка кофе в Минске",
@@ -45,8 +45,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${playfair.variable} ${manrope.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-ink text-cream font-sans">{children}</body>
+    <html lang="ru" className={`${cormorant.variable} ${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-[#0e1311] text-[#ffffff] font-sans">
+        {children}
+      </body>
     </html>
   );
 }

@@ -9,7 +9,7 @@ import { SubscriptionSection } from "@/components/SubscriptionSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-ink text-cream selection:bg-crema selection:text-ink">
+    <div className="flex min-h-screen flex-col bg-[#0e1311] text-[#ffffff] selection:bg-[#faf080] selection:text-[#0e1311]">
       <Header />
       <main className="flex-1">
         <HeroSection />

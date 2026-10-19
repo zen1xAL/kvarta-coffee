@@ -16,35 +16,39 @@ export function LeadFormSection() {
   const form = useLeadForm();
 
   return (
-    <section id="lead-form" className={UI.section.roast}>
+    <section id="lead-form" className={UI.section.dark}>
       <div className={UI.container}>
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
           <LeadFormNote />
 
           <div className="lg:col-span-7">
             {form.status === "success" ? (
-              <div className="rounded-panel border border-line-strong bg-bean p-8">
-                <h3 className="font-serif text-2xl text-crema">Спасибо, заявка принята!</h3>
-                <p className={`mt-2 ${UI.typography.body}`}>
-                  Мы уже получили ваш заказ и свяжемся с вами в течение 15 минут.
+              <div className="rounded-[4px] border border-[#333333] bg-[#262626] p-8">
+                <h3 className="font-serif text-[24px] font-normal italic text-[#ffffff]">
+                  Спасибо, заявка принята!
+                </h3>
+                <p className="mt-2 font-sans text-[15px] text-[#b3b3b3]">
+                  Мы получили ваш заказ и свяжемся с вами в течение 15 минут.
                 </p>
                 <button
                   onClick={() => form.setStatus("idle")}
-                  className="mt-6 text-sm text-caramel underline"
+                  className="mt-6 font-sans text-[13px] text-[#f6f7f2] underline"
                 >
                   Отправить еще одну заявку
                 </button>
               </div>
             ) : (
-              <form onSubmit={form.handleSubmit} className="space-y-5">
-                <div className="flex flex-wrap gap-2.5">
+              <form onSubmit={form.handleSubmit} className="space-y-4">
+                <div className="flex flex-wrap gap-2">
                   {INTERESTS.map((item) => (
                     <button
                       type="button"
                       key={item.id}
                       onClick={() => form.setInterest(item.id)}
-                      className={`${UI.optionPill.base} ${
-                        form.interest === item.id ? UI.optionPill.active : UI.optionPill.inactive
+                      className={`rounded-[4px] border px-4 py-2.5 font-sans text-[13px] font-medium transition-colors ${
+                        form.interest === item.id
+                          ? "border-[#f6f7f2] bg-[#f6f7f2] text-[#0e1311]"
+                          : "border-[#333333] bg-[#262626] text-[#b3b3b3] hover:text-[#ffffff]"
                       }`}
                     >
                       {item.label}
@@ -58,10 +62,10 @@ export function LeadFormSection() {
                     value={form.name}
                     onChange={(e) => form.setName(e.target.value)}
                     placeholder="Ваше имя"
-                    className={UI.inputPill}
+                    className="w-full rounded-[4px] border border-[#333333] bg-[#262626] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#f6f7f2] focus:outline-none"
                   />
                   {form.errors.name && (
-                    <p className="mt-1.5 text-xs text-caramel">{form.errors.name}</p>
+                    <p className="mt-1 text-xs text-[#dfdbca]">{form.errors.name}</p>
                   )}
                 </div>
 
@@ -71,13 +75,13 @@ export function LeadFormSection() {
                     value={form.phone}
                     onChange={(e) => form.handlePhoneChange(e.target.value)}
                     placeholder="+375 (29) 000-00-00"
-                    className={UI.inputPill}
+                    className="w-full rounded-[4px] border border-[#333333] bg-[#262626] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#f6f7f2] focus:outline-none"
                   />
-                  <p className={`mt-1.5 text-xs ${UI.typography.bodySm}`}>
+                  <p className="mt-1 font-sans text-[12px] text-[#808080]">
                     Коды операторов РБ: 25, 29, 33, 44
                   </p>
                   {form.errors.phone && (
-                    <p className="mt-1.5 text-xs text-caramel">{form.errors.phone}</p>
+                    <p className="mt-1 text-xs text-[#dfdbca]">{form.errors.phone}</p>
                   )}
                 </div>
 
@@ -85,8 +89,8 @@ export function LeadFormSection() {
                   rows={3}
                   value={form.comment}
                   onChange={(e) => form.setComment(e.target.value)}
-                  placeholder="Сорт кофе, помол (под турку, воронку, чашку) или пожелания"
-                  className={UI.field.textarea}
+                  placeholder="Сорт кофе, помол (под турку, воронку, чашку) или вопрос"
+                  className="w-full rounded-[4px] border border-[#333333] bg-[#262626] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#f6f7f2] focus:outline-none"
                 />
 
                 <LeadFormFeedback status={form.status} errorMsg={form.errorMsg} />
@@ -94,7 +98,7 @@ export function LeadFormSection() {
                 <button
                   type="submit"
                   disabled={form.submitting}
-                  className={`w-full ${UI.button.primary} disabled:opacity-50`}
+                  className="w-full rounded-[4px] bg-[#f6f7f2] py-3.5 font-sans text-[14px] font-medium text-[#0e1311] transition-colors hover:bg-[#ffffff] disabled:opacity-50"
                 >
                   {form.submitting ? "Отправка..." : "Отправить заявку"}
                 </button>

@@ -16,10 +16,10 @@ export function LeadFormFeedback({ status, errorMsg }: Props) {
       <div className={UI.field.feedback}>
         <p>{errorMsg}</p>
         <p className="mt-2 text-xs">
-          Напрямую:{" "}
+          Свяжитесь напрямую:{" "}
           <a
             href={`tel:${ROASTERY.contacts.phone.replace(/[^\d+]/g, "")}`}
-            className="text-caramel underline"
+            className="text-[#f6f7f2] underline"
           >
             {ROASTERY.contacts.phone}
           </a>{" "}
@@ -28,7 +28,7 @@ export function LeadFormFeedback({ status, errorMsg }: Props) {
             href={`https://t.me/${ROASTERY.contacts.telegram.replace("@", "")}`}
             target="_blank"
             rel="noreferrer"
-            className="text-caramel underline"
+            className="text-[#f6f7f2] underline"
           >
             Telegram
           </a>

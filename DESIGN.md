@@ -1,279 +1,116 @@
----
-name: Crema & Nogal (Kvarta Edition)
-description: Small-batch specialty coffee roaster; warm, dark, editorial landing built on ink and crema.
-colors:
-  crema: "#c8894a"
-  caramel: "#dda463"
-  roast: "#6b4226"
-  bean: "#3e2616"
-  mocha: "#5a4636"
-  mocha-deep: "#6b5848"
-  ink: "#141414"
-  charcoal: "#2a2a2a"
-  line: "#3a3a3a"
-  line-strong: "#4a4a4a"
-  cream: "#f4ece1"
-  cream-dim: "#e6dccf"
-  paper: "#fffaf3"
-  oat: "#efe3d2"
-  sand: "#e6d9c7"
-  soft: "#d9cfc2"
-  muted: "#bfb4a6"
-  hairline: "#d8c7b1"
-typography:
-  display:
-    fontFamily: "var(--font-serif), ui-serif, Georgia, serif"
-    fontSize: "clamp(48px, 6.4vw, 92px)"
-    fontWeight: 500
-    lineHeight: 0.98
-    letterSpacing: "-0.03em"
-  headline:
-    fontFamily: "var(--font-serif), ui-serif, Georgia, serif"
-    fontSize: "clamp(36px, 4.4vw, 58px)"
-    fontWeight: 500
-    lineHeight: 1.02
-    letterSpacing: "-0.02em"
-  title:
-    fontFamily: "var(--font-serif), ui-serif, Georgia, serif"
-    fontSize: "28px"
-    fontWeight: 500
-    lineHeight: 1.05
-  quote:
-    fontFamily: "var(--font-serif), ui-serif, Georgia, serif"
-    fontSize: "22px"
-    fontWeight: 500
-    lineHeight: 1.45
-  body:
-    fontFamily: "var(--font-sans), ui-sans-serif, system-ui, sans-serif"
-    fontSize: "17px"
-    fontWeight: 400
-    lineHeight: 1.625
-  body-sm:
-    fontFamily: "var(--font-sans), ui-sans-serif, system-ui, sans-serif"
-    fontSize: "15px"
-    fontWeight: 400
-    lineHeight: 1.625
-  label:
-    fontFamily: "var(--font-sans), ui-sans-serif, system-ui, sans-serif"
-    fontSize: "12px"
-    fontWeight: 500
-    letterSpacing: "0.1em"
-rounded:
-  chip: "6px"
-  control: "14px"
-  inset: "16px"
-  card: "22px"
-  tile: "24px"
-  panel: "28px"
-  pill: "9999px"
-spacing:
-  gutter: "clamp(20px, 4vw, 48px)"
-  section: "clamp(64px, 8vw, 112px)"
-  container: "1280px"
-  stack-sm: "10px"
-  stack-md: "14px"
-  stack-lg: "24px"
-  stack-xl: "28px"
-components:
-  button-primary:
-    backgroundColor: "{colors.crema}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.pill}"
-    padding: "16px 30px"
-  button-primary-hover:
-    backgroundColor: "{colors.caramel}"
-    textColor: "{colors.ink}"
-  button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.pill}"
-    padding: "15px 26px"
-  chip-note:
-    backgroundColor: "{colors.oat}"
-    textColor: "{colors.bean}"
-    rounded: "{rounded.pill}"
-    padding: "5px 12px"
-  chip-origin:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.pill}"
-    padding: "6px 12px"
-  option-pill:
-    backgroundColor: "transparent"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.control}"
-    padding: "14px 16px"
-  option-pill-selected:
-    backgroundColor: "{colors.crema}"
-    textColor: "{colors.ink}"
-  tab:
-    backgroundColor: "transparent"
-    textColor: "{colors.bean}"
-    rounded: "{rounded.pill}"
-    padding: "11px 20px"
-  tab-selected:
-    backgroundColor: "{colors.bean}"
-    textColor: "{colors.cream}"
-  input-pill:
-    backgroundColor: "{colors.bean}"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.pill}"
-    padding: "15px 22px"
-  card-product:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.card}"
-    padding: "24px 24px 26px"
-  card-testimonial:
-    backgroundColor: "{colors.charcoal}"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.card}"
-    padding: "32px"
-  panel-dark:
-    backgroundColor: "{colors.charcoal}"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.panel}"
-    padding: "clamp(28px, 3.5vw, 44px)"
----
+# Assembly Coffee London (Kvarta Minsk Localization) — Style Reference
 
-# Design System: Crema & Nogal (Kvarta Coffee Edition)
+> Embers in a dark roastery. A near-black canvas (#0e1311) with warm, low-lit product photography and italic serif labels — the feeling of a specialty coffee menu printed in a midnight zine.
 
-## Overview
+**Theme:** dark
 
-**Creative North Star: "The Roastery at Dusk"**
+Assembly Coffee's visual system reads like an editorial magazine printed on black paper. The interface is overwhelmingly dark — near-black canvases (#0e1311) carry everything — interrupted only by dark-lit product photography and hairline typography in white (#ffffff). Two type families do all the work: a geometric sans (`var(--font-gt-america-standard)`, Inter) for UI scaffolding, navigation, and metadata, and a refined serif (`var(--font-id00-serif)`, Cormorant Garamond / Playfair Display) for product names, section labels, and editorial copy, almost always in italic, which turns a functional list into a curated index. The palette is almost monochromatic: chromatic vocabulary is rationed to badge fills (citron `#faf080`, lichen green `#cadcac`, antique gold `#cfa53b`) and the occasional warm-tinted linen surface (`#f6f7f2`). Components are thin, sharp-cornered (`4px` radius), and rely on `1px` borders (`#1a1a1a`, `#333333`, `#dfdbca`) rather than shadows or fills for separation.
 
-The page is a roastery after hours: a near-black room (ink, charcoal, bean) lit by one warm source, the amber of fresh crema. Against that dark, the brand speaks in a confident editorial serif and lets copy breathe. Periodically the visitor steps into daylight: cream and paper sections where the practical work happens (choosing a bag, learning about freshness, reading delivery details). That dark/light alternation is the system's pulse; every section is one or the other, never a blend.
+## Tokens — Colors
 
-The mood is warm, dark and editorial. Density is generous: sections pad out to 112px, headlines balance across lines, body copy caps at ~30em. Expression lives in type, warm tone and soft geometry, not in ornament, imagery tricks or effects. The world is flat: depth is a change of surface tone, never a shadow.
+| Name         | Value     | Token                  | Role                                                                                                                 |
+| ------------ | --------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Obsidian     | `#0e1311` | `--color-obsidian`     | Primary canvas — page backgrounds, hero sections, card surfaces. Near-black with a faint green undertone             |
+| Pure Black   | `#000000` | `--color-pure-black`   | Deepest surface, borders, and type                                                                                   |
+| Ash Charcoal | `#1a1a1a` | `--color-ash-charcoal` | Secondary surface and 1px border tone — nav, dividers, product card borders                                          |
+| Graphite     | `#333333` | `--color-graphite`     | Mid-neutral for secondary borders, input borders, and card outlines                                                  |
+| Stone Gray   | `#808080` | `--color-stone-gray`   | Image placeholder and muted tone                                                                                     |
+| Silver       | `#b3b3b3` | `--color-silver`       | Secondary/muted text on dark surfaces (tasting notes, descriptions, captions)                                        |
+| Bone         | `#ffffff` | `--color-bone`         | Primary text on dark canvases, inverted surfaces                                                                     |
+| Linen        | `#f6f7f2` | `--color-linen`        | Warm off-white surface for price pill backgrounds (`60px` radius), inverted sections, and primary form submit button |
+| Sand Khaki   | `#dfdbca` | `--color-sand-khaki`   | Hairline borders, dividers, and card edges on light/inverted surfaces                                                |
+| Lichen Green | `#cadcac` | `--color-lichen-green` | Editorial tag badge fill (e.g., «Свежая обжарка», «Фильтр / Дрипы») with `#0e1311` text                              |
+| Citron       | `#faf080` | `--color-citron`       | Editorial tag badge fill (e.g., «Урожай недели», «Четверговый батч») with `#0e1311` text                             |
+| Antique Gold | `#cfa53b` | `--color-antique-gold` | Accent 1px stroke/border for subscription or special-release badges                                                  |
+| Olive Bark   | `#4d4a31` | `--color-olive-bark`   | Top announcement bar background — deep earthy green-brown                                                            |
 
-Confirmed rejections: chain-café green and kraft-paper/chalkboard clichés; generic SaaS styling (drop-shadow cards, decorative gradients, blue CTAs, glassmorphism); rustic farmhouse kitsch (burlap, wood textures, bean doodles, script fonts).
+## Tokens — Typography
 
-**Key Characteristics:**
+### GT America Standard (Localized via `Inter` with Cyrillic) · `--font-gt-america-standard`
 
-- Dark-first canvas (ink) with crema as the single warm light source.
-- Strict section alternation between dark rooms and cream daylight.
-- Playfair Display (`var(--font-serif)`) for voice, Manrope (`var(--font-sans)`) for everything functional.
-- Flat surfaces; depth by tonal stepping and hairline borders.
-- Soft, confident geometry: full pills for actions, 22–28px radii for containers.
+- **Weights:** 300, 400, 500, 600
+- **Role:** The UI workhorse: navigation labels, body copy, metadata, tasting notes, footer text, form fields. Weight 400 for body, 500 for nav items, 600 sparingly for tiny 11px uppercase labels like `'АССОРТИМЕНТ НЕДЕЛИ'`.
 
-## Colors
+### ID00 Serif (Localized via `Cormorant_Garamond` or `Playfair_Display` with Cyrillic) · `--font-id00-serif`
 
-A coffee palette in the literal sense: every hue sits between roasted bean and steamed milk, with one amber accent.
+- **Weights:** 300, 400 (almost always `italic`)
+- **Role:** The editorial voice: product names, section headings, `'Выбрать →'` links, and the founder manifesto copy. Almost always set in `italic` — this is the signature move that makes the site read as a curated coffee journal rather than a template store.
 
-### Primary
+### Type Scale
 
-- **Crema Amber** (crema `#c8894a`): the light in the room. Primary buttons, announcement bar, logo mark, selected option pills, serif numerals in step lists and value props. The only saturated fill on a dark section.
-- **Toasted Caramel** (caramel `#dda463`): crema's hover and highlight partner. Primary-button hover, the italic accent word in the hero headline, link hover on dark.
+- `caption`: `11px`, line-height `1.5`, uppercase tracking `0.08em` (`--text-caption`)
+- `body`: `16px`, line-height `1.5` (`--text-body`)
+- `subheading`: `18px`, line-height `1.4` (`--text-subheading`)
+- `heading-sm`: `21px`, line-height `1.25` (`--text-heading-sm`)
+- `heading`: `30px`, line-height `1.25` (`--text-heading`)
+- `heading-lg`: `36px`, line-height `1.2` (`--text-heading-lg`)
+- `display`: `42px`, line-height `1.2` (`--text-display`)
 
-### Secondary
+## Tokens — Spacing & Shapes
 
-- **Medium Roast** (roast `#6b4226`): warm brown for structure on light surfaces and for the form/lead band.
-- **Dark Bean** (bean `#3e2616`): deepest brown. The Story/Freshness section background, image-placeholder fill, primary text and selected tab fill on cream, step-number discs, form input fill.
+- **Page max-width:** `1400px`
+- **Section gap / vertical padding:** `80px` (`--spacing-80`)
+- **Card padding:** `20px` (`--spacing-20`)
+- **Border Radius:**
+  - `nav`, `cards`, `badges`, `inputs`, `buttons`: **`4px`** (`rounded-[4px]`)
+  - `pricePills`: **`60px`** (`rounded-[60px]`) — reserved EXCLUSIVELY for the Linen (`#f6f7f2`) price pill (`32 BYN · 250 г`).
 
-### Neutral
+## Components (Localized for «Кварта», Минск)
 
-- **Night Roast Ink** (ink `#141414`): page background, header (92% with blur), footer, text on cream sections and on crema fills.
-- **Charcoal Hopper** (charcoal `#2a2a2a`): raised dark surface: subscription panel, pickup/delivery cards; also hairline dividers on ink.
-- **Grinder Steel** (line `#3a3a3a`): dividers and borders on charcoal surfaces.
-- **Burr Grey** (line-strong `#4a4a4a`): outline of ghost buttons and unselected option pills on dark.
-- **Steamed Milk Cream** (cream `#f4ece1`): primary text on dark; background of light sections (Catalog, Pickup & Delivery).
-- **Faded Cream** (cream-dim `#e6dccf`): long-form body copy on dark sections.
-- **Paper Filter** (paper `#fffaf3`): card and panel surface inside cream sections.
-- **Oat Milk** (oat `#efe3d2`): tasting-note chip fill.
-- **Burlap Sand** (sand `#e6d9c7`): borders on paper cards, spec-grid gutters.
-- **Foam** (soft `#d9cfc2`): secondary text on dark (hero lede, footer links).
-- **Ash** (muted `#bfb4a6`): tertiary text on dark: captions, meta, labels.
-- **Cocoa** (mocha `#5a4636`): secondary text on light surfaces.
-- **Deep Cocoa** (mocha-deep `#6b5848`): small uppercase labels and fine print on paper.
-- **Hairline** (hairline `#d8c7b1`): dividers on cream/light sections.
+### 1. Announcement Bar
 
-### Named Rules
+Full-bleed bar at the very top, `olive-bark` (`#4d4a31`) background with `linen` (`#f6f7f2`) text. Sans `11–13px`, centered, single line:
+`Обжарка каждый четверг партиями по 5 кг · Доставка по Минску в пятницу (бесплатно от 50 BYN) · Самовывоз: ул. Короля, 9`
 
-**The One Light Rule.** Crema/caramel are the only saturated fills on dark sections. One crema button per cluster; everything else in the cluster is ghost or underline.
+### 2. Primary Header / Nav
 
-**The Daylight Rule.** Light sections use cream as the floor and paper for contained surfaces; text flips to ink/bean/mocha. Never put crema text on cream.
+Sticky dark header on `#0e1311`, `border-b border-[#1a1a1a]`.
 
-## Typography
+- Left: typographic mark `Кварта` in bone serif italic (`21px`) + tiny index `19` (since 2019) in superscript/caption.
+- Center: nav items in Sans `14px` weight `500` (`Ассортимент`, `Свежесть`, `Подписка`, `Доставка`, `Заявка`), separated by a vertical `1px` hairline (`#1a1a1a`).
+- Right: typographic italic serif action link `Оформить заказ →` or `4px` ghost button (`border border-[#333333]`).
 
-**Display Font:** Playfair Display (loaded via `next/font/google` with `subsets: ['cyrillic', 'latin']`, weight 400–700 + italic, bound to CSS variable `--font-serif`)
-**Body Font:** Manrope (loaded via `next/font/google` with `subsets: ['cyrillic', 'latin']`, weight 400–600, bound to CSS variable `--font-sans`)
+### 3. Editorial Hero (Two-Column Split: 35% Left Index + 65% Right Studio Photograph)
 
-**Character:** Playfair Display (`--font-serif`) is a high-contrast editorial serif with calligraphic italic; set at 500 with tight negative tracking it reads like a roaster's printed menu, not a template. Manrope (`--font-sans`) is a precise neo-grotesk that stays quiet in every functional role. The serif speaks, the sans serves. Prices, step counts and specs use `tabular-nums`.
+- **Left Column (Featured Index):** On `#0e1311`, `'СВЕЖАЯ ОБЖАРКА · МИНСК'` label in Sans `11px` uppercase letter-spaced at top + main italic serif title (`42px`). Below it, a vertical stack of 4 typographic index entries (Эфиопия Иргачеффе, Колумбия Уила, Бразилия Серрадо, Подписка 54 BYN) — each entry has name in Serif Italic `21px` `#ffffff` and subtext (`32 BYN · Заказать →`) in Sans `13px` `#b3b3b3`, separated by `32–40px` vertical spacing and `1px` `#1a1a1a` hairlines. No cards!
+- **Right Column (Studio Photograph):** Large low-key dark-lit coffee photograph (`4px` radius) over a subtle warm ember/charcoal backdrop (`#1a1a1a`), no text overlay.
 
-### Hierarchy
+### 4. Editorial Manifesto Block (Аня и Дмитрий · Почему свежесть важна)
 
-- **Display** (500, clamp(48px, 6.4vw, 92px), 0.98, −0.03em): hero H1 only. Balanced wrap; one phrase switches to italic in caramel, same size.
-- **Headline** (500, clamp(36px, 4.4vw, 58px), 1.02, −0.02em): every section H2, balanced wrap, ~13em max.
-- **Title** (500, 28px, 1.05, −0.015em): product names, prices, value-prop titles (22px).
-- **Quote** (serif, 21–22px, 1.45–1.5): founder story pull-quote (italic). Serif numerals in crema (22–30px) mark lists and steps.
-- **Body** (400, 17px, 1.625): section ledes and story copy, max ~30–32em, `text-wrap: pretty`. 15–16px for card/step copy.
-- **Label** (500, 12px, 0.1em, uppercase): data labels only (spec grid, pickup details, footer column titles). Never above a section heading.
+Full-width `#0e1311` section, `80px` vertical padding, `border-t border-[#1a1a1a]`.
 
-### Named Rules
+- Large Serif Italic `30–36px` (`#ffffff`, weight `300–400`, line-height `1.2`) manifesto prose:
+  _«Мы — Аня и Дмитрий, бывшие бариста. С 2019 года обжариваем кофе в Минске микро-партиями по 5 кг каждый четверг, чтобы в пятницу зерно было у вас — на 1–3 день после ростера, на пике эфирных масел и сладости.»_
+- Below the prose: a sharp 3-column architectural strip (`border-t border-b border-[#1a1a1a]`, divided by `1px` `#1a1a1a` vertical hairlines, `0px/4px` radius) detailing **Четверг (Обжарка 5 кг)**, **Пятница (Развоз по Минску)**, **1–3 день (Пик вкуса в чашке)** with `#faf080` Citron / `#cadcac` Lichen micro-badges (`4px` radius).
 
-**The Headline-Stands-Alone Rule.** Sections open directly with the serif headline. No eyebrow/kicker above it, no decorative 01/02/03 numbering; the headline carries its own weight.
+### 5. Product Card Grid (Catalog — 4 items)
 
-**The Serif Numeral Rule.** Ordinals and counts that structure content (freshness steps 1/2/3, prices in BYN) are set in `--font-serif`, crema on dark. Inline UI numbers stay sans.
+4-column or 2x2 grid on `#0e1311` with `1px` border in `#1a1a1a` and `4px` radius (`padding: 20px`).
 
-## Layout
+- **Top Tag Badge:** Small `4px` radius badge (`padding: 4px 8px`, Sans `11px` weight `500` uppercase `#0e1311` text) on `#faf080` (Citron) or `#cadcac` (Lichen Green) or `#cfa53b` stroke.
+- **Visual:** Low-key, dark-studio coffee imagery (`4px` radius, slightly desaturated warm dark mood — NO white backgrounds, NO hands holding cappuccinos, NO third-party white bags).
+- **Title:** Product name in Serif Italic `24px` `#ffffff` (weight `400`).
+- **Tasting Notes:** Sans `14px` `#b3b3b3` (e.g., `цветочный, бергамот, светлая обжарка · 250 г`).
+- **Bottom Row:**
+  - Bottom-left: **Price Pill** (`60px` radius, `#f6f7f2` Linen background, `padding: 6px 16px`, Sans `13px` weight `500` `#0e1311` text: `32 BYN`).
+  - Bottom-right: Typographic link in Serif Italic `16px` `#ffffff` (`Выбрать →` with underline on hover).
 
-Single centered column: `container-page` caps at 1280px with a fluid gutter (clamp(20px, 4vw, 48px)). Sections stack full-bleed with fluid vertical padding (`section-y`, clamp(64px, 8vw, 112px)).
+### 6. Subscription & Delivery Sections
 
-Grids use `repeat(auto-fit, minmax(min(100%, N), 1fr))` with N = 220px (value props), 280px (product cards), 360px (two-column splits). Gaps are fluid clamps (clamp(32px, 5vw, 72px) between split columns, clamp(20px, 2.5vw, 32px) between cards).
+- **Subscription (`54 BYN / мес`):** Framed architectural block on `#0e1311` / `#1a1a1a` with `1px` `#cfa53b` (Antique Gold) or `#dfdbca` (Sand Khaki) hairline border and `4px` radius. Editorial badge `#faf080` (`ПОДПИСКА`), Serif Italic `36px` heading, Sans `16px` `#b3b3b3` copy, Price Pill (`54 BYN / мес · 2 × 250 г`), and action button.
+- **Delivery & Pickup (`Минск, ул. Короля, 9`):** Inverted warm `Linen` (`#f6f7f2`) section (as allowed by Assembly Coffee's _Linen Invert_ rule for rare light sections!) with `#0e1311` text and `1px` `#dfdbca` (Sand Khaki) hairlines, contrasting with the dark gallery sections.
 
-## Elevation & Depth
+### 7. Lead Form Section
 
-Fully flat. No `box-shadow` anywhere in the system. Depth is conveyed by stepping surface tone (ink → charcoal on dark; cream → paper on light; bean for the warm "back room") and by 1px hairline borders (charcoal/line on dark, sand on light). The only translucency is the sticky header: ink at 92% with a medium backdrop blur.
+On `#0e1311` canvas with `1px` `#1a1a1a` border:
 
-## Shapes
-
-Soft, confident geometry with no sharp corners. Actions and small tags are full pills (9999px). Containers scale their radius with their size: 14px for option controls, 16px for inset spec grids, 22px for cards, 24px for image tiles, 28px for large panels and hero frames. Images are always clipped inside a rounded frame.
-
-## Components
-
-### Buttons
-
-- **Shape:** full pill (9999px).
-- **Primary:** crema fill (`#c8894a`), ink text (`#141414`), 600 weight. Sizes: 16px/30px pad at 16px text (hero), 13px/22px at 15px (card), 10px/20px at 14px (header).
-- **Hover:** fill shifts to caramel (`#dda463`), 150ms color transition. No lift, no shadow.
-- **Ghost:** transparent, line-strong (`#4a4a4a`) 1px border, cream text (`#f4ece1`); border turns crema on hover.
-
-### Chips
-
-- **Tasting note:** oat fill (`#efe3d2`), bean text (`#3e2616`), 13px, pill.
-- **Origin/Weight tag:** ink fill (`#141414`), cream text (`#f4ece1`), 12px with 0.06em tracking, pill.
-
-### Option Pills (Lead Form Interest Selection)
-
-Radio-group buttons for form interest choices (`подписка`, `разовый заказ`, `вопрос`). 14px radius, 1px `#4a4a4a` border, transparent, cream semibold 15px text; selected state (`aria-checked`) fills crema (`#c8894a`) with ink text (`#141414`).
-
-### Cards / Containers
-
-- **Product card:** paper surface (`#fffaf3`), 22px radius, 1px sand (`#e6d9c7`) border, 4:3 image on top clipped to the card, 24px internal padding. Price in bean (`#3e2616`) using `--font-serif`.
-- **Dark panel (Subscription 54 BYN/мес):** charcoal (`#2a2a2a`), 28px radius, fluid padding clamp(28px, 3.5vw, 44px) with line-colored divider (`#3a3a3a`).
-- **Light panel (Pickup & Delivery):** paper (`#fffaf3`), 28px radius, sand border (`#e6d9c7`), fluid padding.
-
-### Inputs / Fields (Lead Form)
-
-Bean fill (`#3e2616`), 1px `#8a5c3c` border, cream text (`#f4ece1`), warm `#bfa58a` placeholder, 15px/22px pad, 16px–22px radius (or pill for single-line inputs). Focus shifts the border to caramel (`#dda463`) with no glow.
-
-### Navigation
-
-Sticky header, ink (`#141414`) at 92% + backdrop blur, charcoal (`#2a2a2a`) bottom hairline. Logo left (crema circle mark + serif wordmark «Кварта» 22px); links right in 15px cream, caramel on hover, ending with a small primary pill CTA.
+- Left column: Serif Italic `36px` `#ffffff` heading + `#b3b3b3` Sans copy & workshop details.
+- Right column: Sharp `4px` radius inputs (`bg-[#1a1a1a] border border-[#333333] text-[#ffffff] placeholder-[#808080] rounded-[4px]`), `4px` radius interest selector buttons (`Подписка`, `Разовый заказ`, `Вопрос`), and primary submit button (`bg-[#f6f7f2] text-[#0e1311] hover:bg-[#faf080] rounded-[4px] font-medium`).
 
 ## Do's and Don'ts
 
-### Do:
-
-- **Do** alternate dark (`ink`/`charcoal`/`bean`) and light (`cream`) sections; every section commits to one.
-- **Do** use `crema` as the single warm accent on dark, with `caramel` for hover and highlight.
-- **Do** open every section with the `--font-serif` headline alone; no eyebrow above it.
-- **Do** build elevation from tone steps and 1px hairlines (`sand` on light, `charcoal`/`line` on dark).
-- **Do** use full pills for actions and tags, and 22–28px radii for containers.
-
-### Don't:
-
-- **Don't** add box-shadows, glows, glassmorphism (beyond the header blur) or decorative gradients.
-- **Don't** use blue, purple, or green hues anywhere.
-- **Don't** use `crema` or `caramel` text on `cream`/`paper` backgrounds; use `roast` or `bean`.
-- **Don't** introduce sharp-cornered cards or square buttons.
+- **Do** set all headlines and product names in **Serif Italic** (`font-serif italic font-normal`, weight 300–400). Never bold 700!
+- **Do** keep radii strictly at **`4px`** for cards, badges, inputs, and buttons. Reserve `60px` radius ONLY for the `#f6f7f2` Price Pill.
+- **Do** use badge colors (`#faf080` Citron, `#cadcac` Lichen Green, `#cfa53b` Antique Gold) sparingly for `4px` editorial tags.
+- **Don't** use `22px` or `28px` rounded cards or `9999px` pill inputs.
+- **Don't** place bright white stock photos of third-party coffee bags or cappuccinos on dark cards.

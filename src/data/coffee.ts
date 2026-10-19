@@ -1,77 +1,51 @@
-export interface CoffeeProduct {
-  id: string;
-  name: string;
-  notes: string[];
-  roast: string;
-  weight: string;
-  price: number;
-  image: string;
-}
+import type { CoffeeProduct, SubscriptionPlan, RoasteryData } from "@/types/coffee";
 
-export interface SubscriptionPlan {
-  title: string;
-  description: string;
-  price: number;
-  period: string;
-  packageDetails: string;
-  freeDelivery: boolean;
-}
-
-export interface RoasteryData {
-  name: string;
-  city: string;
-  address: string;
-  batchSizeKg: number;
-  foundedYear: number;
-  founders: string;
-  roastDay: string;
-  deliveryDay: string;
-  freshnessWindow: string;
-  workingHours: { weekdays: string; weekends: string };
-  deliveryTerms: { freeFromBYN: number; description: string };
-  contacts: { phone: string; address: string; telegram: string; instagram: string };
-}
+export type { CoffeeProduct, SubscriptionPlan, RoasteryData };
 
 export const COFFEE_PRODUCTS: CoffeeProduct[] = [
   {
     id: "ethiopia-yirgacheffe",
-    name: "Эфиопия Иргачеффе",
-    notes: ["цветочный", "бергамот"],
+    name: "Эфиопия — Иргачеффе",
+    notes: ["Цветочный", "Бергамот", "Светлая обжарка"],
     roast: "светлая обжарка",
     weight: "250 г",
     price: 32,
-    image:
-      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80",
+    tag: "Урожай недели",
+    tagVariant: "citron",
+    image: "/images/ethiopia-bag.png",
   },
   {
     id: "colombia-huila",
-    name: "Колумбия Уила",
-    notes: ["карамель", "красное яблоко"],
+    name: "Колумбия — Уила",
+    notes: ["Карамель", "Красное яблоко", "Средняя обжарка"],
     roast: "средняя обжарка",
     weight: "250 г",
     price: 29,
-    image:
-      "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?auto=format&fit=crop&w=800&q=80",
+    tag: "Свежая обжарка",
+    tagVariant: "lichen",
+    image: "/images/colombia-bag.png",
   },
   {
     id: "brazil-cerrado",
-    name: "Бразилия Серрадо",
-    notes: ["орех", "шоколад"],
+    name: "Бразилия — Серрадо",
+    notes: ["Орех", "Шоколад", "Под эспрессо"],
     roast: "под эспрессо",
     weight: "250 г",
     price: 26,
-    image:
-      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+    tag: "Четверговый батч",
+    tagVariant: "citron",
+    image: "/images/brazil-bag.png",
   },
   {
     id: "drip-assorted",
-    name: "Дрип-пакеты, ассорти",
-    notes: ["ассорти сортов"],
+    name: "Дрип-пакеты — Ассорти",
+    notes: ["10 штук в боксе", "Фильтр-профиль", "Ассорти сортов"],
     roast: "фильтр-обжарка",
     weight: "10 штук",
     price: 18,
-    image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+    tag: "Фильтр / Дрипы",
+    tagVariant: "lichen",
+    image: "/images/drip-box.png",
   },
 ];
 

@@ -1,106 +1,82 @@
 @import "tailwindcss";
 
+:root {
+  --color-obsidian: #0e1311;
+  --color-pure-black: #000000;
+  --color-ash-charcoal: #1a1a1a;
+  --color-graphite: #333333;
+  --color-stone-gray: #808080;
+  --color-silver: #b3b3b3;
+  --color-bone: #ffffff;
+  --color-linen: #f6f7f2;
+  --color-sand-khaki: #dfdbca;
+  --color-lichen-green: #cadcac;
+  --color-citron: #faf080;
+  --color-antique-gold: #cfa53b;
+  --color-olive-bark: #4d4a31;
+
+  --text-caption: 11px;
+  --text-body: 16px;
+  --text-subheading: 18px;
+  --text-heading-sm: 21px;
+  --text-heading: 30px;
+  --text-heading-lg: 36px;
+  --text-display: 42px;
+
+  --radius-card: 4px;
+  --radius-button: 4px;
+  --radius-badge: 4px;
+  --radius-input: 4px;
+  --radius-pill: 60px;
+
+  --spacing-container: 1400px;
+  --spacing-section: 80px;
+  --spacing-card: 20px;
+}
+
 @theme {
-  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-id00-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-gt-america-standard), ui-sans-serif, system-ui, sans-serif;
+  --font-id00-serif: var(--font-id00-serif), ui-serif, Georgia, serif;
+  --font-gt-america-standard: var(--font-gt-america-standard), ui-sans-serif, system-ui, sans-serif;
 
-  --color-crema: #c8894a;
-  --color-caramel: #dda463;
-  --color-roast: #6b4226;
-  --color-bean: #3e2616;
-  --color-mocha: #5a4636;
-  --color-mocha-deep: #6b5848;
-  --color-ink: #141414;
-  --color-charcoal: #2a2a2a;
-  --color-line: #3a3a3a;
-  --color-line-strong: #4a4a4a;
-  --color-cream: #f4ece1;
-  --color-cream-dim: #e6dccf;
-  --color-paper: #fffaf3;
-  --color-oat: #efe3d2;
-  --color-sand: #e6d9c7;
-  --color-soft: #d9cfc2;
-  --color-muted: #bfb4a6;
-  --color-hairline: #d8c7b1;
+  --color-obsidian: #0e1311;
+  --color-pure-black: #000000;
+  --color-ash-charcoal: #1a1a1a;
+  --color-graphite: #333333;
+  --color-stone-gray: #808080;
+  --color-silver: #b3b3b3;
+  --color-bone: #ffffff;
+  --color-linen: #f6f7f2;
+  --color-sand-khaki: #dfdbca;
+  --color-lichen-green: #cadcac;
+  --color-citron: #faf080;
+  --color-antique-gold: #cfa53b;
+  --color-olive-bark: #4d4a31;
 
-  --radius-chip: 6px;
-  --radius-control: 14px;
-  --radius-inset: 16px;
-  --radius-card: 22px;
-  --radius-tile: 24px;
-  --radius-panel: 28px;
-  --radius-pill: 9999px;
+  --radius-card: 4px;
+  --radius-button: 4px;
+  --radius-badge: 4px;
+  --radius-input: 4px;
+  --radius-pill: 60px;
 
-  --spacing-gutter: clamp(20px, 4vw, 48px);
-  --spacing-section: clamp(64px, 8vw, 112px);
-  --spacing-container: 1280px;
+  --spacing-container: 1400px;
+  --spacing-section: 80px;
+  --spacing-card: 20px;
 }
 
 .container-page {
   max-width: var(--spacing-container);
   margin-inline: auto;
-  padding-inline: var(--spacing-gutter);
+  padding-inline: clamp(16px, 3.5vw, 48px);
 }
 
 .section-padding {
   padding-block: var(--spacing-section);
 }
 
-.font-display {
-  font-family: var(--font-serif);
-  font-size: clamp(48px, 6.4vw, 92px);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-}
-
-.font-headline {
-  font-family: var(--font-serif);
-  font-size: clamp(36px, 4.4vw, 58px);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-}
-
-.font-title {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-}
-
-.font-quote {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.45;
-}
-
-.font-body {
-  font-family: var(--font-sans);
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.625;
-}
-
-.font-body-sm {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.625;
-}
-
-.font-label {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 body {
-  background-color: var(--color-ink);
-  color: var(--color-cream);
-  font-family: var(--font-sans);
+  background-color: var(--color-obsidian);
+  color: var(--color-bone);
+  font-family: var(--font-gt-america-standard), ui-sans-serif, system-ui, sans-serif;
 }
