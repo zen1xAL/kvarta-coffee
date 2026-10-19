@@ -15,7 +15,6 @@ export function CatalogSection() {
           </h2>
         </div>
 
-        {/* 2-column staggered layout */}
         <div className="grid gap-14 md:grid-cols-2 md:gap-16 lg:gap-24">
           <div className="space-y-16 md:space-y-24">
             <CatalogCard item={COFFEE_PRODUCTS[0]} />

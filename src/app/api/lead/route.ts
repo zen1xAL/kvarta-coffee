@@ -25,9 +25,7 @@ async function notifyTelegram(lead: StoredLead): Promise<void> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: chatId, text: lines.join("\n") }),
     });
-  } catch {
-    // Non-blocking notification failure
-  }
+  } catch {}
 }
 
 export async function POST(request: Request) {

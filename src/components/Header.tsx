@@ -12,12 +12,10 @@ const NAV_ITEMS = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50">
-      {/* Top Olive Announcement Bar */}
       <div className="bg-[#4d4a31] px-4 py-2 text-center font-sans text-[12px] text-[#f6f7f2]">
         Бесплатная пятничная доставка по Минску при заказе от 50 BYN
       </div>
 
-      {/* Main Dark Header #0e1311 */}
       <div className="border-b border-[#1a1a1a] bg-[#0e1311]/95 backdrop-blur-md">
         <div className={`flex h-16 items-center justify-between ${UI.container}`}>
           <Logo />

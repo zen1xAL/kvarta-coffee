@@ -29,18 +29,14 @@ function loadLeadsFromDisk(): StoredLead[] {
       const parsed = JSON.parse(content);
       if (Array.isArray(parsed)) return parsed as StoredLead[];
     }
-  } catch {
-    // Fallback to memory
-  }
+  } catch {}
   return [];
 }
 
 function persistLeadsToDisk(leads: StoredLead[]): void {
   try {
     fs.writeFileSync(STORAGE_FILE, JSON.stringify(leads, null, 2), "utf-8");
-  } catch {
-    // Non-blocking in serverless environments
-  }
+  } catch {}
 }
 
 function ensureLoaded(): void {
@@ -102,7 +98,5 @@ export function clearStoredLeads(): void {
   initialized = true;
   try {
     if (fs.existsSync(STORAGE_FILE)) fs.unlinkSync(STORAGE_FILE);
-  } catch {
-    // Ignore cleanup error
-  }
+  } catch {}
 }

@@ -39,7 +39,6 @@ export function HeroSection() {
     <section className="relative overflow-hidden border-b border-[#1a1a1a] bg-gradient-to-r from-[#4a1c0d] via-[#2e1108] to-[#0e1311] py-14 sm:py-20">
       <div className={UI.container}>
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
-          {/* Left Column: H1 Title + All 5 Featured Positions */}
           <div className="lg:col-span-6">
             <h1 className="font-serif text-[32px] font-light italic leading-[1.18] text-[#ffffff] sm:text-[40px]">
               Свежая обжарка кофе в Минске — зерно на 1–3 день после ростера
@@ -72,7 +71,6 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Studio Photo of Stacked Boxes */}
           <div className="lg:col-span-6">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px]">
               <Image

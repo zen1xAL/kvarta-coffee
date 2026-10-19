@@ -23,7 +23,6 @@ export function DeliverySection() {
   return (
     <section id="delivery" className="bg-[#f6f7f2] py-20 sm:py-28 text-[#0e1311]">
       <div className={UI.container}>
-        {/* Centered two-line header */}
         <div className="text-center">
           <h2 className="font-serif text-[32px] font-normal italic sm:text-[36px]">
             Доставка и самовывоз
@@ -33,7 +32,6 @@ export function DeliverySection() {
           </p>
         </div>
 
-        {/* 4-column clean gallery without frames and without badges */}
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {DELIVERY_CARDS.map((card) => (
             <div key={card.title} className="flex flex-col text-left">

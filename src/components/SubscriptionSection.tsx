@@ -6,7 +6,6 @@ export function SubscriptionSection() {
     <section id="subscription" className="bg-[#723824] py-16 sm:py-24 text-[#ffffff]">
       <div className={UI.container}>
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Left Column: Journal Issue 01 Manifesto */}
           <div className="flex flex-col items-start lg:col-span-7">
             <span className="font-sans text-[12px] font-medium tracking-wider text-[#dfdbca] uppercase">
               Подписка Кварта — Ежемесячный выпуск 01
@@ -29,7 +28,6 @@ export function SubscriptionSection() {
             </div>
           </div>
 
-          {/* Right Column: Studio Cover Composition */}
           <div className="lg:col-span-5">
             <SubscriptionCoverGraphic />
           </div>

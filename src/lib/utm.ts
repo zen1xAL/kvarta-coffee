@@ -30,9 +30,7 @@ export function captureUtmParams(): void {
     };
 
     window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(captured));
-  } catch {
-    // Graceful fallback if storage is restricted
-  }
+  } catch {}
 }
 
 export function getStoredUtmParams(): UtmParams | undefined {

@@ -3,9 +3,7 @@ import Image from "next/image";
 export function SubscriptionCoverGraphic() {
   return (
     <div className="relative flex min-h-[360px] w-full items-center justify-center sm:min-h-[440px]">
-      {/* Two-part Journal Box */}
       <div className="relative z-10 flex h-[260px] w-[310px] overflow-hidden rounded-[4px] sm:h-[310px] sm:w-[380px]">
-        {/* Left Half: Clean White Editorial Sheet */}
         <div className="flex w-1/2 flex-col justify-between bg-[#ffffff] p-5 text-[#0e1311] sm:p-6">
           <div className="flex items-baseline justify-between border-b border-[#dfdbca] pb-2">
             <span className="font-serif text-[18px] font-normal italic sm:text-[20px]">
@@ -28,7 +26,6 @@ export function SubscriptionCoverGraphic() {
           </div>
         </div>
 
-        {/* Right Half: Warm Coffee Photo Flush in Contact */}
         <div className="relative w-1/2 bg-[#1c120c]">
           <Image
             src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop"

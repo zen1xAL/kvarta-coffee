@@ -4,7 +4,6 @@ export function FreshnessSection() {
   return (
     <section id="freshness" className="border-t border-[#1a1a1a] bg-[#0e1311]">
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        {/* Left Half: Roastery & Batch Craft */}
         <div className="relative flex min-h-[460px] flex-col justify-end p-8 sm:min-h-[540px] sm:p-14 lg:p-20">
           <Image
             src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1400&auto=format&fit=crop"
@@ -34,7 +33,6 @@ export function FreshnessSection() {
           </div>
         </div>
 
-        {/* Right Half: Peak Freshness & Pourover */}
         <div className="relative flex min-h-[460px] flex-col justify-end border-t border-[#1a1a1a] p-8 sm:min-h-[540px] sm:p-14 lg:border-t-0 lg:border-l lg:p-20">
           <Image
             src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1400&auto=format&fit=crop"
