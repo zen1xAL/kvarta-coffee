@@ -6,7 +6,7 @@ PROJECT SPECIFICATION: KVARTA COFFEE ROASTERY (MINSK)
 
 1. VISUAL SYSTEM
 
-- Strictly implement the tokens, colors, 4px radii, italic serif headings, and dark gallery aesthetic from DESIGN.md (Assembly Coffee London).
+- Strictly implement the tokens, colors, 4px radii, italic serif headings, and dark gallery aesthetic from DESIGN.md (Кварта).
 - Tone: warm, honest, simple, no corporate pathos. Target audience: 25-45 years old from mobile Instagram and Yandex ads.
 
 2. MANDATORY FACTS AND CONTENT

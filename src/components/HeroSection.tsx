@@ -74,9 +74,9 @@ export function HeroSection() {
 
           {/* Right Column: Studio Photo of Stacked Boxes */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] border border-[#2b2420] shadow-[0_25px_50px_rgba(0,0,0,0.8)]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px]">
               <Image
-                src="/images/hero-boxes.png"
+                src="/images/kvarta-hero-v2.png"
                 alt="Студийное фото кофе Кварта"
                 fill
                 priority

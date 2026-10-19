@@ -12,7 +12,7 @@ export const COFFEE_PRODUCTS: CoffeeProduct[] = [
     price: 32,
     tag: "Урожай недели",
     tagVariant: "citron",
-    image: "/images/ethiopia-bag.png",
+    image: "/images/kvarta-ethiopia-v2.png",
   },
   {
     id: "colombia-huila",
@@ -23,7 +23,7 @@ export const COFFEE_PRODUCTS: CoffeeProduct[] = [
     price: 29,
     tag: "Свежая обжарка",
     tagVariant: "lichen",
-    image: "/images/colombia-bag.png",
+    image: "/images/kvarta-colombia-v2.png",
   },
   {
     id: "brazil-cerrado",
@@ -34,18 +34,18 @@ export const COFFEE_PRODUCTS: CoffeeProduct[] = [
     price: 26,
     tag: "Четверговый батч",
     tagVariant: "citron",
-    image: "/images/brazil-bag.png",
+    image: "/images/kvarta-brazil-v2.png",
   },
   {
     id: "drip-assorted",
     name: "Дрип-пакеты — Ассорти",
-    notes: ["10 штук в боксе", "Фильтр-профиль", "Ассорти сортов"],
+    notes: ["Эфиопия и Колумбия", "Фильтр-профиль", "Заваривание в чашке"],
     roast: "фильтр-обжарка",
     weight: "10 штук",
     price: 18,
     tag: "Фильтр / Дрипы",
     tagVariant: "lichen",
-    image: "/images/drip-box.png",
+    image: "/images/kvarta-drip-v2.png",
   },
 ];
 

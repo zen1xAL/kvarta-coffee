@@ -3,11 +3,8 @@ import Image from "next/image";
 export function SubscriptionCoverGraphic() {
   return (
     <div className="relative flex min-h-[360px] w-full items-center justify-center sm:min-h-[440px]">
-      {/* Studio podium ambient shadow */}
-      <div className="absolute bottom-6 h-8 w-80 rounded-full bg-black/40 blur-2xl" />
-
-      {/* Two-part Journal Box from Frame 4 of Assembly reference */}
-      <div className="relative z-10 flex h-[260px] w-[310px] overflow-hidden rounded-[4px] border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] sm:h-[310px] sm:w-[380px]">
+      {/* Two-part Journal Box */}
+      <div className="relative z-10 flex h-[260px] w-[310px] overflow-hidden rounded-[4px] sm:h-[310px] sm:w-[380px]">
         {/* Left Half: Clean White Editorial Sheet */}
         <div className="flex w-1/2 flex-col justify-between bg-[#ffffff] p-5 text-[#0e1311] sm:p-6">
           <div className="flex items-baseline justify-between border-b border-[#dfdbca] pb-2">
