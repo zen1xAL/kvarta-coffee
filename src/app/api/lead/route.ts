@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { validateLeadPayload } from "@/lib/validation";
-import { saveLead } from "@/lib/lead-storage";
+import { getStoredLeads, saveLead } from "@/lib/lead-storage";
 import type { StoredLead } from "@/lib/lead-storage";
 import { HTTP_STATUS, LEAD_STATUS } from "@/constants/http";
 
@@ -77,4 +77,12 @@ export async function POST(request: Request) {
       { status: HTTP_STATUS.BAD_REQUEST },
     );
   }
+}
+
+export async function GET() {
+  const leads = getStoredLeads();
+  return NextResponse.json({
+    count: leads.length,
+    leads,
+  });
 }

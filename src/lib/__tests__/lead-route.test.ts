@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { POST } from "@/app/api/lead/route";
+import { GET, POST } from "@/app/api/lead/route";
 import { clearStoredLeads } from "@/lib/lead-storage";
 import { HTTP_STATUS, LEAD_STATUS } from "@/constants/http";
 
@@ -71,5 +71,26 @@ describe("POST /api/lead endpoint", () => {
     const json2 = await res2.json();
     expect(json2.status).toBe(LEAD_STATUS.DUPLICATE);
     expect(json2.message).toContain("10 минут");
+  });
+
+  it("returns stored leads list on GET", async () => {
+    const postReq = new Request("http://localhost/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "Анна",
+        phone: "+375 (29) 999-88-77",
+        interest: "подписка",
+      }),
+    });
+    await POST(postReq);
+
+    const getRes = await GET();
+    expect(getRes.status).toBe(HTTP_STATUS.OK);
+    const json = await getRes.json();
+    expect(json.count).toBe(1);
+    expect(json.leads).toHaveLength(1);
+    expect(json.leads[0].name).toBe("Анна");
+    expect(json.leads[0].normalizedPhone).toBe("+375299998877");
   });
 });
