@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --color-crema: #c8894a;
+  --color-caramel: #dda463;
+  --color-roast: #6b4226;
+  --color-bean: #3e2616;
+  --color-mocha: #5a4636;
+  --color-mocha-deep: #6b5848;
+  --color-ink: #141414;
+  --color-charcoal: #2a2a2a;
+  --color-line: #3a3a3a;
+  --color-line-strong: #4a4a4a;
+  --color-cream: #f4ece1;
+  --color-cream-dim: #e6dccf;
+  --color-paper: #fffaf3;
+  --color-oat: #efe3d2;
+  --color-sand: #e6d9c7;
+  --color-soft: #d9cfc2;
+  --color-muted: #bfb4a6;
+  --color-hairline: #d8c7b1;
+
+  --radius-chip: 6px;
+  --radius-control: 14px;
+  --radius-inset: 16px;
+  --radius-card: 22px;
+  --radius-tile: 24px;
+  --radius-panel: 28px;
+  --radius-pill: 9999px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-crema: #c8894a;
+  --color-caramel: #dda463;
+  --color-roast: #6b4226;
+  --color-bean: #3e2616;
+  --color-mocha: #5a4636;
+  --color-mocha-deep: #6b5848;
+  --color-ink: #141414;
+  --color-charcoal: #2a2a2a;
+  --color-line: #3a3a3a;
+  --color-line-strong: #4a4a4a;
+  --color-cream: #f4ece1;
+  --color-cream-dim: #e6dccf;
+  --color-paper: #fffaf3;
+  --color-oat: #efe3d2;
+  --color-sand: #e6d9c7;
+  --color-soft: #d9cfc2;
+  --color-muted: #bfb4a6;
+  --color-hairline: #d8c7b1;
+
+  --radius-chip: 6px;
+  --radius-control: 14px;
+  --radius-inset: 16px;
+  --radius-card: 22px;
+  --radius-tile: 24px;
+  --radius-panel: 28px;
+  --radius-pill: 9999px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
 }
