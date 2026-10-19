@@ -4,6 +4,7 @@
 
 - **Сайт в продакшене:** [https://kvarta-coffee-nine.vercel.app](https://kvarta-coffee-nine.vercel.app)
 - **API проверки сохранённых заявок:** [https://kvarta-coffee-nine.vercel.app/api/lead](https://kvarta-coffee-nine.vercel.app/api/lead)
+- **Telegram-бот мастерской:** [@kvarta_coffee_2026_bot](https://t.me/kvarta_coffee_2026_bot)
 - **Стек технологий:** Next.js 16 (App Router, Turbopack), React 19, TypeScript, Tailwind CSS v4, Vitest, Prettier, ESLint.
 
 ---
@@ -24,7 +25,7 @@
   - Блокировка кнопки на клиенте во время выполнения сетевого запроса (`disabled` + индикатор загрузки).
   - Серверная дедупликация: повторная отправка заявки с одного номера телефона в течение 10 минут мягко отклоняется с понятным уведомлением.
 - **Интеграция с Telegram:**
-  - Автоматическая отправка форматированной карточки заказа в рабочий Telegram-чат мастерской через Bot API.
+  - Автоматическая отправка форматированной карточки заказа в рабочий Telegram-чат мастерской через Bot API бота [@kvarta_coffee_2026_bot](https://t.me/kvarta_coffee_2026_bot).
 - **Превью ссылки (OpenGraph):**
   - Настроены мета-теги OpenGraph и Twitter Cards для корректного отображения обложки, заголовка и описания при публикации ссылки в мессенджерах и соцсетях.
 - **Студийная эстетика и микро-анимации:**
