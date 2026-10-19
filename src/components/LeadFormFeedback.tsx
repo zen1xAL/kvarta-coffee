@@ -23,7 +23,7 @@ export function LeadFormFeedback({ status, errorMsg }: Props) {
           Свяжитесь напрямую:{" "}
           <a
             href={`tel:${ROASTERY.contacts.phone.replace(NON_DIGIT_PLUS_REGEX, "")}`}
-            className="text-[#f6f7f2] underline"
+            className="text-[#f6f7f2] underline transition-colors hover:text-[#dfdbca]"
           >
             {ROASTERY.contacts.phone}
           </a>{" "}
@@ -32,7 +32,7 @@ export function LeadFormFeedback({ status, errorMsg }: Props) {
             href={`https://t.me/${ROASTERY.contacts.telegram.replace(AT_SYMBOL_REGEX, "")}`}
             target="_blank"
             rel="noreferrer"
-            className="text-[#f6f7f2] underline"
+            className="text-[#f6f7f2] underline transition-colors hover:text-[#dfdbca]"
           >
             Telegram
           </a>

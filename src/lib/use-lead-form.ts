@@ -19,31 +19,40 @@ export function useLeadForm() {
   useEffect(() => {
     captureUtmParams();
     const onClick = (e: MouseEvent) => {
-      const el = (e.target as HTMLElement).closest<HTMLElement>(
+      const anchor = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+      const selectEl = (e.target as HTMLElement).closest<HTMLElement>(
         "[data-lead-interest], [data-select-coffee], [data-select-interest]",
       );
-      if (!el) return;
-      e.preventDefault();
+      if (!anchor && !selectEl) return;
 
-      const targetInterest = (el.getAttribute("data-lead-interest") ||
-        el.getAttribute("data-select-interest")) as LeadInterest | null;
-      const targetComment =
-        el.getAttribute("data-lead-comment") || el.getAttribute("data-select-coffee");
+      const href = anchor?.getAttribute("href");
+      const targetId = href && href.startsWith("#") ? href.slice(1) : "lead-form";
+      const targetElement = targetId ? document.getElementById(targetId) : null;
 
-      if (targetInterest) setInterest(targetInterest);
-      if (targetComment) setComment(targetComment);
-      setStatus("idle");
-
-      const targetForm = document.getElementById("lead-form");
-      if (targetForm) {
-        targetForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (targetId && window.location.hash !== `#${targetId}`) {
+          window.history.pushState(null, "", `#${targetId}`);
+        }
       }
 
-      setHighlightComment(true);
-      window.clearTimeout(highlightTimerRef.current);
-      highlightTimerRef.current = window.setTimeout(() => {
-        setHighlightComment(false);
-      }, 900);
+      if (selectEl) {
+        const targetInterest = (selectEl.getAttribute("data-lead-interest") ||
+          selectEl.getAttribute("data-select-interest")) as LeadInterest | null;
+        const targetComment =
+          selectEl.getAttribute("data-lead-comment") || selectEl.getAttribute("data-select-coffee");
+
+        if (targetInterest) setInterest(targetInterest);
+        if (targetComment) setComment(targetComment);
+        setStatus("idle");
+
+        setHighlightComment(true);
+        window.clearTimeout(highlightTimerRef.current);
+        highlightTimerRef.current = window.setTimeout(() => {
+          setHighlightComment(false);
+        }, 900);
+      }
     };
 
     document.addEventListener("click", onClick);
