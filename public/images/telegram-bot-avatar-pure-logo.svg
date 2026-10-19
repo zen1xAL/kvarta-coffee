@@ -1,0 +1,25 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#161f1a" />
+      <stop offset="65%" stop-color="#0e1311" />
+      <stop offset="100%" stop-color="#070908" />
+    </radialGradient>
+  </defs>
+
+  <!-- Deep dark atmospheric background -->
+  <rect width="1024" height="1024" fill="url(#bgGlow)" />
+
+  <!-- Architectural subtle circular border -->
+  <circle cx="512" cy="512" r="440" fill="none" stroke="#242a27" stroke-width="2.5" />
+
+  <!-- Single prominent, perfectly centered logo line: Кварта | 19 -->
+  <text x="512" y="555" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="136" fill="#ffffff">
+    <tspan font-style="italic">Кварта</tspan>
+    <tspan fill="#606c66" font-style="normal" font-weight="300" dx="24">|</tspan>
+    <tspan fill="#ffffff" font-style="normal" dx="24">19</tspan>
+  </text>
+
+  <!-- Clean minimal subtitle at bottom -->
+  <text x="512" y="660" fill="#7d8882" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="500" letter-spacing="8" text-anchor="middle">ОБЖАРКА · МИНСК</text>
+</svg>

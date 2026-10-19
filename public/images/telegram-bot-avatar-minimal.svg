@@ -1,41 +1,39 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#141c18" />
-      <stop offset="100%" stop-color="#0b0e0d" />
+      <stop offset="0%" stop-color="#151d19" />
+      <stop offset="70%" stop-color="#0e1311" />
+      <stop offset="100%" stop-color="#080b0a" />
     </radialGradient>
   </defs>
 
-  <!-- Background -->
+  <!-- Dark atmospheric background -->
   <rect width="1024" height="1024" fill="url(#bgGlow)" />
 
-  <!-- Subtle circular border for Telegram crop guide -->
+  <!-- Telegram circular crop safe guides -->
   <circle cx="512" cy="512" r="440" fill="none" stroke="#242a27" stroke-width="2" />
-  <circle cx="512" cy="512" r="456" fill="none" stroke="#161c19" stroke-width="1" />
+  <circle cx="512" cy="512" r="456" fill="none" stroke="#161c19" stroke-width="1.5" />
 
-  <!-- Mini Roaster / Coffee Bean Badge Icon -->
-  <g transform="translate(512, 330)">
+  <!-- Center Coffee Bean / Roaster Icon -->
+  <g transform="translate(512, 335)">
     <circle cx="0" cy="0" r="32" fill="#131a16" stroke="#2a3530" stroke-width="1.5" />
-    <path d="M-10,-12 C-14,0 -6,14 0,16 C6,14 14,0 10,-12 C6,-8 0,-6 -10,-12 Z" fill="#c49a6c" opacity="0.85" />
-    <path d="M-2,-14 C2,-6 -2,4 2,14" fill="none" stroke="#0e1311" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M-9,-12 C-14,0 -6,14 0,16 C6,14 14,0 9,-12 C6,-8 0,-6 -9,-12 Z" fill="#c49a6c" opacity="0.9" />
+    <path d="M-2,-13 C2,-5 -2,5 2,13" fill="none" stroke="#0e1311" stroke-width="1.5" stroke-linecap="round" />
   </g>
 
-  <!-- Upper Label -->
-  <text x="512" y="420" fill="#7e8a84" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="8" text-anchor="middle">МАСТЕРСКАЯ ОБЖАРКИ</text>
+  <!-- Top roastery badge subtitle -->
+  <text x="512" y="425" fill="#7d8882" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="8" text-anchor="middle">МАСТЕРСКАЯ ОБЖАРКИ</text>
 
-  <!-- Main Website Logo: Кварта | 19 -->
-  <g transform="translate(512, 535)">
-    <!-- 'Кварта' in italic serif -->
-    <text x="-35" y="0" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="92" font-weight="normal" text-anchor="end">Кварта</text>
-    <!-- Divider '|' -->
-    <text x="0" y="-6" fill="#525d57" font-family="Georgia, serif" font-size="80" font-weight="300" text-anchor="middle">|</text>
-    <!-- '19' in serif -->
-    <text x="35" y="0" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="normal" text-anchor="start">19</text>
-  </g>
+  <!-- The Exact Site Logo Centered Perfectly As A Single Middle-Anchored Line -->
+  <text x="512" y="540" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="100" fill="#ffffff">
+    <tspan font-style="italic">Кварта</tspan>
+    <tspan fill="#606c66" font-style="normal" font-weight="300" dx="18">|</tspan>
+    <tspan fill="#ffffff" font-style="normal" dx="18">19</tspan>
+  </text>
 
   <!-- Subtitle -->
-  <text x="512" y="630" fill="#a4b0aa" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="6" text-anchor="middle">МИНСК · СПЕШЕЛТИ ЗЕРНО</text>
+  <text x="512" y="635" fill="#9eaaa4" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="6" text-anchor="middle">МИНСК · СПЕШЕЛТИ ЗЕРНО</text>
 
-  <!-- Bottom Accent / Origin -->
-  <text x="512" y="685" fill="#525d57" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" letter-spacing="4" text-anchor="middle">С 2019 ГОДА</text>
+  <!-- Year Founded -->
+  <text x="512" y="688" fill="#5a6660" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="500" letter-spacing="4" text-anchor="middle">С 2019 ГОДА</text>
 </svg>
