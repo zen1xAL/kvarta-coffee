@@ -1,0 +1,3 @@
+# GitHub Linguist overrides
+# Exclude standalone generated HTML audit reports from repository language statistics
+lighthouse-report.html linguist-documentation linguist-generated linguist-detectable=false
