@@ -40,7 +40,8 @@ export const COFFEE_PRODUCTS: CoffeeProduct[] = [
     roast: "светлая обжарка",
     weight: "250 г",
     price: 32,
-    image: "/images/coffee-ethiopia.webp",
+    image:
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "colombia-huila",
@@ -49,7 +50,8 @@ export const COFFEE_PRODUCTS: CoffeeProduct[] = [
     roast: "средняя обжарка",
     weight: "250 г",
     price: 29,
-    image: "/images/coffee-colombia.webp",
+    image:
+      "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "brazil-cerrado",
@@ -58,22 +60,25 @@ export const COFFEE_PRODUCTS: CoffeeProduct[] = [
     roast: "под эспрессо",
     weight: "250 г",
     price: 26,
-    image: "/images/coffee-brazil.webp",
+    image:
+      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "drip-assorted",
     name: "Дрип-пакеты, ассорти",
-    notes: ["10 штук", "разные сорта"],
+    notes: ["ассорти сортов"],
     roast: "фильтр-обжарка",
-    weight: "10 шт",
+    weight: "10 штук",
     price: 18,
-    image: "/images/coffee-drips.webp",
+    image:
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
 export const SUBSCRIPTION_PLAN: SubscriptionPlan = {
-  title: "Подписка на кофе",
-  description: "2 пачки по 250 г раз в месяц, доставка бесплатно",
+  title: "Подписка на свежий кофе",
+  description:
+    "2 пачки по 250 г раз в месяц. Обжариваем в четверг и бесплатно привозим по Минску в пятницу",
   price: 54,
   period: "в месяц",
   packageDetails: "2 пачки по 250 г",
@@ -90,10 +95,7 @@ export const ROASTERY: RoasteryData = {
   roastDay: "четверг",
   deliveryDay: "пятница",
   freshnessWindow: "Зерно приходит к клиенту на 1-3 день после обжарки",
-  workingHours: {
-    weekdays: "пн-пт 8:00-20:00",
-    weekends: "сб-вс 10:00-18:00",
-  },
+  workingHours: { weekdays: "пн-пт 8:00-20:00", weekends: "сб-вс 10:00-18:00" },
   deliveryTerms: {
     freeFromBYN: 50,
     description: "Доставка по Минску в пятницу, от 50 BYN бесплатно",

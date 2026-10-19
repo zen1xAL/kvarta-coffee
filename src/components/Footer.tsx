@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ROASTERY } from "@/data/coffee";
+import { Logo } from "@/components/Logo";
 import { UI } from "@/styles/ui";
 
 export function Footer() {
@@ -8,12 +8,7 @@ export function Footer() {
       <div className={UI.container}>
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Link href="/" className="group inline-flex items-center gap-3">
-              <span className="h-3.5 w-3.5 rounded-full bg-crema transition-transform group-hover:scale-110" />
-              <span className="font-serif text-2xl font-medium tracking-tight text-cream">
-                Кварта
-              </span>
-            </Link>
+            <Logo />
             <p className={`mt-4 max-w-sm ${UI.typography.bodySm}`}>
               Маленькая мастерская спешелти кофе в Минске. Обжариваем партиями по 5 кг с 2019 года.
               Свежее зерно каждую пятницу.

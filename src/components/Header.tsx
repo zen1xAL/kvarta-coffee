@@ -1,14 +1,11 @@
-import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { UI } from "@/styles/ui";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-charcoal bg-ink/92 backdrop-blur-md">
       <div className={`flex h-20 items-center justify-between ${UI.container}`}>
-        <Link href="/" className="group flex items-center gap-3">
-          <span className="h-3.5 w-3.5 rounded-full bg-crema transition-transform group-hover:scale-110" />
-          <span className="font-serif text-2xl font-medium tracking-tight text-cream">Кварта</span>
-        </Link>
+        <Logo />
 
         <nav className="hidden items-center gap-8 text-[15px] text-cream md:flex">
           <a href="#catalog" className="transition-colors hover:text-caramel">

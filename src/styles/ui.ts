@@ -45,7 +45,7 @@ export const UI = {
     badge: "rounded-pill bg-bean px-3.5 py-1 font-label text-caramel",
   },
   optionPill: {
-    base: "rounded-control border px-4 py-3 text-sm font-semibold capitalize transition-colors",
+    base: "rounded-control border px-4 py-3 text-sm font-semibold transition-colors",
     active: "border-crema bg-crema text-ink",
     inactive: "border-line-strong bg-transparent text-cream hover:border-crema",
     selected: "border-crema bg-crema text-ink",

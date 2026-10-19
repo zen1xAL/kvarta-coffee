@@ -1,23 +1,23 @@
 import { UI } from "@/styles/ui";
 
-const STEPS = [
+const SCHEDULE = [
   {
-    num: "01",
     day: "Четверг",
-    title: "Обжарка партиями по 5 кг",
-    text: "Обжариваем только под подтвержденные заказы. Зерно не лежит на полках и не теряет яркие эфирные масла.",
+    title: "Обжарка микро-партиями под заказ",
+    description:
+      "Запускаем ростер только под собранные заказы партиями до 5 кг. Никакого складского хранения.",
   },
   {
-    num: "02",
     day: "Пятница",
-    title: "Доставка по Минску",
-    text: "Курьер привозит свежие пачки прямо к двери, либо вы забираете их сами в мастерской на Короля, 9.",
+    title: "Доставка до двери и самовывоз",
+    description:
+      "Курьер развозит свежие пачки по Минску, либо вы забираете их лично в мастерской на Короля, 9.",
   },
   {
-    num: "03",
     day: "Выходные",
-    title: "Пик раскрытия вкуса",
-    text: "Кофе завершает дегазацию на 1–3 день. Именно в эти дни букет звучит максимально сочно, чисто и сладко.",
+    title: "Пик раскрытия букета в чашке",
+    description:
+      "1–3 день дегазации: идеальный баланс сочной ягодной кислотности, карамельной сладости и чистоты.",
   },
 ];
 
@@ -25,30 +25,36 @@ export function FreshnessSection() {
   return (
     <section id="freshness" className={UI.section.bean}>
       <div className={UI.container}>
-        <div className="max-w-3xl">
-          <h2 className={UI.typography.headline}>Почему свежесть решает всё</h2>
-          <p className={`mt-6 ${UI.typography.bodyDim}`}>
-            Мы — Аня и Дмитрий, бывшие бариста. В 2019 году открыли маленькую мастерскую в Минске,
-            потому что устали от кофе полугодовой давности. Настоящий спешелти раскрывается в первые
-            недели после ростера.
-          </p>
-        </div>
+        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left: Founder Story & Manifesto */}
+          <div className="flex flex-col lg:col-span-6">
+            <h2 className={UI.typography.headline}>Почему свежесть решает всё</h2>
+            <blockquote className="mt-6 border-l-2 border-crema pl-5 font-quote italic text-cream">
+              «Кофе полугодовой давности — это тень вкуса. Настоящий спешелти живёт первые недели, а
+              пик букета наступает на 1–3 день после ростера.»
+            </blockquote>
+            <p className={`mt-6 ${UI.typography.bodyDim}`}>
+              Мы — Аня и Дмитрий, бывшие бариста. В 2019 году открыли маленькую мастерскую на
+              Короля, 9, потому что устали от лежалого зерна. Мы не производим кофе впрок — каждая
+              пачка обжаривается персонально под заказы недели.
+            </p>
+            <p className="mt-4 font-sans text-xs font-semibold uppercase tracking-wider text-muted">
+              Аня и Дмитрий · основатели и обжарщики «Кварты»
+            </p>
+          </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {STEPS.map((step) => (
-            <div key={step.num} className={UI.card.darkCard}>
-              <div>
-                <span className="block font-serif text-4xl font-medium text-crema sm:text-5xl">
-                  {step.num}
+          {/* Right: Open Vertical Schedule with Hairline Dividers */}
+          <div className="divide-y divide-line-strong/50 border-y border-line-strong/50 lg:col-span-6">
+            {SCHEDULE.map((item) => (
+              <div key={item.day} className="py-7 first:pt-2 last:pb-2">
+                <span className="font-sans text-xs font-semibold uppercase tracking-widest text-caramel">
+                  {item.day}
                 </span>
-                <span className={`mt-4 inline-block ${UI.typography.label} text-caramel`}>
-                  {step.day}
-                </span>
-                <h3 className={`mt-2 ${UI.typography.titleDark}`}>{step.title}</h3>
-                <p className={`mt-4 ${UI.typography.bodyDim}`}>{step.text}</p>
+                <h3 className={`mt-2 ${UI.typography.titleDark}`}>{item.title}</h3>
+                <p className={`mt-2.5 ${UI.typography.bodyDim}`}>{item.description}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

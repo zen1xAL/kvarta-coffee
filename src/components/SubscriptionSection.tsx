@@ -1,11 +1,18 @@
-import { SUBSCRIPTION_PLAN } from "@/data/coffee";
 import { UI } from "@/styles/ui";
 
-const PERKS = [
-  "2 пачки свежего зерна по 250 г каждый месяц",
-  "Бесплатная курьерская доставка по Минску в пятницу",
-  "Каждый месяц — новые сорта и яркие вкусовые профили",
-  "Можно поставить на паузу или отменить в любой момент",
+const SUBSCRIPTION_POINTS = [
+  {
+    title: "Две пачки по 250 г",
+    desc: "Каждый месяц свежее зерно под ваш вкус и способ заваривания.",
+  },
+  {
+    title: "Бесплатная доставка",
+    desc: "Привозим курьером по Минску в пятницу прямо к вашей двери.",
+  },
+  {
+    title: "Всегда на пике вкуса",
+    desc: "Обжариваем в четверг — кофе у вас уже на 1–3 день после ростера.",
+  },
 ];
 
 export function SubscriptionSection() {
@@ -13,51 +20,37 @@ export function SubscriptionSection() {
     <section id="subscription" className={UI.section.ink}>
       <div className={UI.container}>
         <div className={UI.card.darkPanel}>
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-7">
-              <span className={`inline-block ${UI.chip.badge}`}>Регулярная доставка</span>
-              <h2 className={`mt-4 ${UI.typography.headline}`}>{SUBSCRIPTION_PLAN.title}</h2>
-              <p className={`mt-4 ${UI.typography.bodyDim}`}>
-                Забудьте о закончившемся кофе. Раз в месяц мы привозим свежеобжаренную пару сортов
-                прямо вам домой или в офис.
-              </p>
+          <div className="max-w-2xl">
+            <h2 className={UI.typography.headline}>Подписка на свежий кофе</h2>
+            <p className={`mt-4 ${UI.typography.bodyDim}`}>
+              2 пачки по 250 г раз в месяц. Обжариваем в четверг и бесплатно привозим по Минску в
+              пятницу
+            </p>
+          </div>
 
-              <ul className="mt-8 space-y-3.5">
-                {PERKS.map((perk) => (
-                  <li key={perk} className="flex items-center gap-3">
-                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-crema" />
-                    <span className={UI.typography.bodySm}>{perk}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex flex-col items-start justify-between rounded-card border border-line bg-ink/70 p-8 lg:col-span-5">
-              <div>
-                <span className={UI.typography.label}>Стоимость подписки</span>
-                <div className="mt-2 flex items-baseline gap-2">
-                  <span className="font-serif text-5xl font-medium text-crema sm:text-6xl">
-                    {SUBSCRIPTION_PLAN.price}
-                  </span>
-                  <span className="font-serif text-2xl text-cream-dim">BYN</span>
-                  <span className={UI.typography.label}>/ месяц</span>
-                </div>
-                <p className={`mt-3 text-xs ${UI.typography.bodySm}`}>
-                  Включает {SUBSCRIPTION_PLAN.packageDetails} и бесплатную пятничную доставку.
-                </p>
+          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+            {SUBSCRIPTION_POINTS.map((item) => (
+              <div key={item.title}>
+                <h3 className="font-serif text-lg font-medium text-cream">{item.title}</h3>
+                <p className={`mt-1.5 ${UI.typography.bodySm}`}>{item.desc}</p>
               </div>
+            ))}
+          </div>
 
-              <div className="mt-8 w-full">
-                <a
-                  href="#lead-form"
-                  data-lead-interest="подписка"
-                  data-lead-comment="Оформление подписки на кофе (2 пачки по 250 г / мес)"
-                  className={`w-full ${UI.button.primary}`}
-                >
-                  Оформить подписку
-                </a>
-              </div>
+          <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-line pt-8 sm:flex-row sm:items-center">
+            <div className="flex items-baseline gap-2">
+              <span className="font-serif text-4xl font-medium text-crema sm:text-5xl">54</span>
+              <span className="font-serif text-2xl text-cream">BYN</span>
+              <span className="font-sans text-sm text-soft">/ мес</span>
             </div>
+            <a
+              href="#lead-form"
+              data-lead-interest="подписка"
+              data-lead-comment="Подписка на свежий кофе (2 пачки по 250 г / мес за 54 BYN)"
+              className={UI.button.primary}
+            >
+              Оформить подписку
+            </a>
           </div>
         </div>
       </div>
