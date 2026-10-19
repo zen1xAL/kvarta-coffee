@@ -7,14 +7,7 @@ import type {
   ValidationResult,
 } from "@/types/lead";
 
-export type {
-  LeadInterest,
-  LeadPayload,
-  PhoneValidationResult,
-  UtmParams,
-  ValidatedLead,
-  ValidationResult,
-};
+export type { ValidatedLead };
 
 const VALID_OPERATORS = new Set(["25", "29", "33", "44"]);
 const UTM_KEYS: (keyof UtmParams)[] = [
@@ -35,28 +28,35 @@ const INTEREST_MAP: Record<string, LeadInterest> = {
   вопрос: "вопрос",
 };
 
+const DIGITS_REGEX = /\D/g;
+const NON_PHONE_CHARS_REGEX = /[^\d\s+\-()]/;
+
 export function normalizeBelarusPhone(raw: string): string {
-  const digits = raw.replace(/\D/g, "");
+  const digits = raw.replace(DIGITS_REGEX, "");
   if (digits.startsWith("80") && digits.length === 11) return `+375${digits.slice(2)}`;
   if (digits.length === 9 && VALID_OPERATORS.has(digits.slice(0, 2))) return `+375${digits}`;
   return `+${digits}`;
 }
 
 export function validateBelarusPhone(raw: unknown): PhoneValidationResult {
-  if (typeof raw !== "string" || !raw.trim())
+  if (typeof raw !== "string" || !raw.trim()) {
     return { valid: false, error: "Укажите номер телефона" };
-  if (/[^\d\s+\-()]/.test(raw))
+  }
+  if (NON_PHONE_CHARS_REGEX.test(raw)) {
     return { valid: false, error: "Номер содержит недопустимые символы" };
+  }
 
-  const digits = raw.replace(/\D/g, "");
+  const digits = raw.replace(DIGITS_REGEX, "");
   let norm = digits;
   if (digits.startsWith("80") && digits.length === 11) norm = `375${digits.slice(2)}`;
   else if (digits.length === 9 && VALID_OPERATORS.has(digits.slice(0, 2))) norm = `375${digits}`;
 
-  if (!norm.startsWith("375"))
+  if (!norm.startsWith("375")) {
     return { valid: false, error: "Поддерживаются только номера Беларуси (+375)" };
-  if (norm.length !== 12)
+  }
+  if (norm.length !== 12) {
     return { valid: false, error: "Номер должен содержать 9 цифр после кода +375" };
+  }
   if (!VALID_OPERATORS.has(norm.slice(3, 5))) {
     return { valid: false, error: "Неверный код оператора. Допустимы только 25, 29, 33, 44" };
   }
@@ -86,8 +86,9 @@ export function validateLeadPayload(payload: unknown): ValidationResult<Validate
   else if (name.length > 60) errors.name = "Имя не должно превышать 60 символов";
 
   const phoneRes = validateBelarusPhone(data.phone);
-  if (!phoneRes.valid || !phoneRes.normalized)
-    errors.phone = phoneRes.error ?? "Некорректный номер телефона";
+  if (!phoneRes.valid) {
+    errors.phone = phoneRes.error;
+  }
 
   const interestKey = typeof data.interest === "string" ? data.interest.trim().toLowerCase() : "";
   const mapped = INTEREST_MAP[interestKey];
@@ -96,14 +97,16 @@ export function validateLeadPayload(payload: unknown): ValidationResult<Validate
   const comment = typeof data.comment === "string" ? data.comment.trim() : "";
   if (comment.length > 1000) errors.comment = "Комментарий не должен превышать 1000 символов";
 
-  if (Object.keys(errors).length > 0) return { success: false, errors };
+  if (Object.keys(errors).length > 0 || !phoneRes.valid) {
+    return { success: false, errors };
+  }
 
   return {
     success: true,
     data: {
       name,
       phone: String(data.phone).trim(),
-      normalizedPhone: phoneRes.normalized!,
+      normalizedPhone: phoneRes.normalized,
       interest: mapped,
       comment,
       utm: sanitizeUtm(data.utm),

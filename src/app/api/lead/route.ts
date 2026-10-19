@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validation = validateLeadPayload(body);
 
-    if (!validation.success || !validation.data) {
+    if (!validation.success) {
       return NextResponse.json(
         { success: false, errors: validation.errors },
         { status: HTTP_STATUS.BAD_REQUEST },
@@ -49,9 +49,9 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!saveResult.success || !saveResult.lead) {
+    if (!saveResult.success) {
       return NextResponse.json(
-        { success: false, message: "Не удалось сохранить заявку" },
+        { success: false, message: saveResult.error ?? "Не удалось сохранить заявку" },
         { status: HTTP_STATUS.INTERNAL_SERVER_ERROR },
       );
     }

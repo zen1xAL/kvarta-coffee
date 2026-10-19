@@ -2,6 +2,9 @@ import { Logo } from "@/components/Logo";
 import { ROASTERY } from "@/data/coffee";
 import { UI } from "@/styles/ui";
 
+const NON_DIGIT_PLUS_REGEX = /[^\d+]/g;
+const AT_SYMBOL_REGEX = /@/g;
+
 export function Footer() {
   return (
     <footer
@@ -37,13 +40,13 @@ export function Footer() {
             </span>
             <div className="mt-3 space-y-2 text-[14px]">
               <a
-                href={`tel:${ROASTERY.contacts.phone.replace(/[^\d+]/g, "")}`}
+                href={`tel:${ROASTERY.contacts.phone.replace(NON_DIGIT_PLUS_REGEX, "")}`}
                 className="block text-[#ffffff] transition-colors hover:text-[#dfdbca]"
               >
                 {ROASTERY.contacts.phone}
               </a>
               <a
-                href={`https://t.me/${ROASTERY.contacts.telegram.replace("@", "")}`}
+                href={`https://t.me/${ROASTERY.contacts.telegram.replace(AT_SYMBOL_REGEX, "")}`}
                 target="_blank"
                 rel="noreferrer"
                 className="block text-[#b3b3b3] transition-colors hover:text-[#ffffff]"
@@ -51,7 +54,7 @@ export function Footer() {
                 Telegram {ROASTERY.contacts.telegram}
               </a>
               <a
-                href={`https://instagram.com/${ROASTERY.contacts.instagram.replace("@", "")}`}
+                href={`https://instagram.com/${ROASTERY.contacts.instagram.replace(AT_SYMBOL_REGEX, "")}`}
                 target="_blank"
                 rel="noreferrer"
                 className="block text-[#b3b3b3] transition-colors hover:text-[#ffffff]"

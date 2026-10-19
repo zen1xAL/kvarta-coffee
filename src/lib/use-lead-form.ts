@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { formatBelarusPhoneInput } from "./phone-format";
 import { captureUtmParams, getStoredUtmParams } from "./utm";
 import { HTTP_STATUS, LEAD_STATUS } from "@/constants/http";
-import type { LeadInterest } from "@/types/lead";
+import type { LeadInterest, LeadFormStatus } from "@/types/lead";
 
 export function useLeadForm() {
   const [name, setName] = useState("");
@@ -10,7 +10,7 @@ export function useLeadForm() {
   const [interest, setInterest] = useState<LeadInterest>("разовый заказ");
   const [comment, setComment] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "duplicate" | "error">("idle");
+  const [status, setStatus] = useState<LeadFormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -25,7 +25,7 @@ export function useLeadForm() {
       if (targetComment) setComment(targetComment);
       setStatus("idle");
     };
-    document.addEventListener("click", onClick);
+    document.addEventListener("click", onClick, { passive: true });
     return () => document.removeEventListener("click", onClick);
   }, []);
 

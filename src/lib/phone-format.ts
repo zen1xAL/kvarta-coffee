@@ -1,5 +1,7 @@
+const DIGITS_REGEX = /\D/g;
+
 export function formatBelarusPhoneInput(value: string): string {
-  const digits = value.replace(/\D/g, "");
+  const digits = value.replace(DIGITS_REGEX, "");
 
   let core = digits;
   if (core.startsWith("375")) core = core.slice(3);

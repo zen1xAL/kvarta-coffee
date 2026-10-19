@@ -17,6 +17,7 @@ export interface LeadPayload {
 }
 
 export type LeadInterest = "подписка" | "разовый заказ" | "вопрос";
+export type LeadFormStatus = "idle" | "success" | "duplicate" | "error";
 
 export interface ValidatedLead {
   name: string;
@@ -27,14 +28,10 @@ export interface ValidatedLead {
   utm?: UtmParams;
 }
 
-export interface ValidationResult<T> {
-  success: boolean;
-  data?: T;
-  errors?: Record<string, string>;
-}
+export type ValidationResult<T> =
+  | { success: true; data: T; errors?: never }
+  | { success: false; errors: Record<string, string>; data?: never };
 
-export interface PhoneValidationResult {
-  valid: boolean;
-  normalized?: string;
-  error?: string;
-}
+export type PhoneValidationResult =
+  | { valid: true; normalized: string; error?: never }
+  | { valid: false; error: string; normalized?: never };

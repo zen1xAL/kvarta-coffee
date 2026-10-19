@@ -9,12 +9,10 @@ export interface StoredLead extends ValidatedLead {
   createdAt: string;
 }
 
-export interface SaveLeadResult {
-  success: boolean;
-  duplicate?: boolean;
-  lead?: StoredLead;
-  error?: string;
-}
+export type SaveLeadResult =
+  | { success: true; lead: StoredLead; duplicate?: false; error?: never }
+  | { success: false; duplicate: true; error: string; lead?: never }
+  | { success: false; duplicate?: false; error: string; lead?: never };
 
 export const DEDUPLICATION_WINDOW_MS = 10 * 60 * 1000;
 const STORAGE_FILE = path.join(os.tmpdir(), "leads.json");
