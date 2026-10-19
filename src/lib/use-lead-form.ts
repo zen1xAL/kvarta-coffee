@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { formatBelarusPhoneInput } from "./phone-format";
 import { captureUtmParams, getStoredUtmParams } from "./utm";
 import { HTTP_STATUS, LEAD_STATUS } from "@/constants/http";
@@ -13,20 +13,44 @@ export function useLeadForm() {
   const [status, setStatus] = useState<LeadFormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [highlightComment, setHighlightComment] = useState(false);
+  const highlightTimerRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     captureUtmParams();
     const onClick = (e: MouseEvent) => {
-      const el = (e.target as HTMLElement).closest<HTMLElement>("[data-lead-interest]");
+      const el = (e.target as HTMLElement).closest<HTMLElement>(
+        "[data-lead-interest], [data-select-coffee], [data-select-interest]",
+      );
       if (!el) return;
-      const targetInterest = el.getAttribute("data-lead-interest") as LeadInterest;
-      const targetComment = el.getAttribute("data-lead-comment");
+      e.preventDefault();
+
+      const targetInterest = (el.getAttribute("data-lead-interest") ||
+        el.getAttribute("data-select-interest")) as LeadInterest | null;
+      const targetComment =
+        el.getAttribute("data-lead-comment") || el.getAttribute("data-select-coffee");
+
       if (targetInterest) setInterest(targetInterest);
       if (targetComment) setComment(targetComment);
       setStatus("idle");
+
+      const targetForm = document.getElementById("lead-form");
+      if (targetForm) {
+        targetForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      setHighlightComment(true);
+      window.clearTimeout(highlightTimerRef.current);
+      highlightTimerRef.current = window.setTimeout(() => {
+        setHighlightComment(false);
+      }, 900);
     };
-    document.addEventListener("click", onClick, { passive: true });
-    return () => document.removeEventListener("click", onClick);
+
+    document.addEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("click", onClick);
+      window.clearTimeout(highlightTimerRef.current);
+    };
   }, []);
 
   const handlePhoneChange = (val: string) => setPhone(formatBelarusPhoneInput(val));
@@ -74,5 +98,6 @@ export function useLeadForm() {
     errorMsg,
     errors,
     handleSubmit,
+    highlightComment,
   };
 }

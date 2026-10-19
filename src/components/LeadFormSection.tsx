@@ -79,7 +79,11 @@ export function LeadFormSection() {
                     value={form.comment}
                     onChange={(e) => form.setComment(e.target.value)}
                     placeholder={config.placeholder}
-                    className="w-full rounded-[4px] border border-[#333333] bg-[#262626] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] transition-colors focus:border-white/50 focus:outline-none"
+                    className={`w-full rounded-[4px] border px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] transition-all duration-500 focus:border-white/50 focus:outline-none ${
+                      form.highlightComment
+                        ? "border-[#f6f7f2] bg-[#242926] ring-1 ring-[#f6f7f2]"
+                        : "border-[#333333] bg-[#262626]"
+                    }`}
                   />
                 </div>
 

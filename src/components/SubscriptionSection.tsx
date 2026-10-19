@@ -22,6 +22,8 @@ export function SubscriptionSection() {
                 href="#lead-form"
                 data-lead-interest="подписка"
                 data-lead-comment="Подписка на свежий кофе (2 пачки по 250 г / мес за 54 BYN)"
+                data-select-interest="подписка"
+                data-select-coffee="Подписка на свежий кофе (2 пачки по 250 г / мес за 54 BYN)"
                 className="inline-flex items-center rounded-[4px] bg-[#f6f7f2] px-6 py-3 font-sans text-xs font-medium text-[#0e1311] transition-all duration-200 hover:bg-[#ffffff] active:scale-[0.98]"
               >
                 Оформить — 54 BYN / мес

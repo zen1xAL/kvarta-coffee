@@ -51,6 +51,11 @@
   padding-block: var(--spacing-section);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
 body {
   background-color: var(--color-obsidian);
   color: var(--color-bone);

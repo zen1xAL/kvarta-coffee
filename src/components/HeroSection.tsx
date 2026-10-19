@@ -60,6 +60,8 @@ export function HeroSection() {
                       href="#lead-form"
                       data-lead-interest={item.interest}
                       data-lead-comment={item.comment}
+                      data-select-interest={item.interest}
+                      data-select-coffee={item.comment}
                       className="group inline-block transition-all duration-300 hover:translate-x-1.5"
                     >
                       <h2 className="font-serif text-[19px] font-light italic text-[#ffffff] transition-colors group-hover:text-[#dfdbca] sm:text-[21px]">
