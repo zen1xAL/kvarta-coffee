@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { validateLeadPayload } from "@/lib/validation";
 import { saveLead } from "@/lib/lead-storage";
 import type { StoredLead } from "@/lib/lead-storage";
+import { HTTP_STATUS, LEAD_STATUS } from "@/constants/http";
 
 async function notifyTelegram(lead: StoredLead): Promise<void> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -35,22 +36,25 @@ export async function POST(request: Request) {
     const validation = validateLeadPayload(body);
 
     if (!validation.success || !validation.data) {
-      return NextResponse.json({ success: false, errors: validation.errors }, { status: 400 });
+      return NextResponse.json(
+        { success: false, errors: validation.errors },
+        { status: HTTP_STATUS.BAD_REQUEST },
+      );
     }
 
     const saveResult = saveLead(validation.data);
 
     if (saveResult.duplicate) {
       return NextResponse.json(
-        { success: false, status: "duplicate", message: saveResult.error },
-        { status: 200 },
+        { success: false, status: LEAD_STATUS.DUPLICATE, message: saveResult.error },
+        { status: HTTP_STATUS.OK },
       );
     }
 
     if (!saveResult.success || !saveResult.lead) {
       return NextResponse.json(
         { success: false, message: "Не удалось сохранить заявку" },
-        { status: 500 },
+        { status: HTTP_STATUS.INTERNAL_SERVER_ERROR },
       );
     }
 
@@ -59,7 +63,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        status: "created",
+        status: LEAD_STATUS.CREATED,
         lead: {
           id: saveResult.lead.id,
           name: saveResult.lead.name,
@@ -67,9 +71,12 @@ export async function POST(request: Request) {
           createdAt: saveResult.lead.createdAt,
         },
       },
-      { status: 201 },
+      { status: HTTP_STATUS.CREATED },
     );
   } catch {
-    return NextResponse.json({ success: false, message: "Некорректный запрос" }, { status: 400 });
+    return NextResponse.json(
+      { success: false, message: "Некорректный запрос" },
+      { status: HTTP_STATUS.BAD_REQUEST },
+    );
   }
 }

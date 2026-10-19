@@ -1,4 +1,5 @@
 import { ROASTERY } from "@/data/coffee";
+import { UI } from "@/styles/ui";
 
 interface Props {
   status: "idle" | "success" | "duplicate" | "error";
@@ -7,16 +8,12 @@ interface Props {
 
 export function LeadFormFeedback({ status, errorMsg }: Props) {
   if (status === "duplicate") {
-    return (
-      <div className="rounded-control border border-caramel bg-bean p-4 text-sm text-soft">
-        {errorMsg}
-      </div>
-    );
+    return <div className={UI.field.feedback}>{errorMsg}</div>;
   }
 
   if (status === "error") {
     return (
-      <div className="rounded-control border border-caramel bg-bean p-4 text-sm text-soft">
+      <div className={UI.field.feedback}>
         <p>{errorMsg}</p>
         <p className="mt-2 text-xs">
           Напрямую:{" "}

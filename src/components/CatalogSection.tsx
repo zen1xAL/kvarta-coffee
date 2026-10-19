@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { COFFEE_PRODUCTS } from "@/data/coffee";
+import { UI } from "@/styles/ui";
 
 const PRODUCT_IMAGES: Record<string, string> = {
   "ethiopia-yirgacheffe":
@@ -14,23 +15,18 @@ const PRODUCT_IMAGES: Record<string, string> = {
 
 export function CatalogSection() {
   return (
-    <section id="catalog" className="border-b border-sand bg-cream py-20 text-ink sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="catalog" className={UI.section.cream}>
+      <div className={UI.container}>
         <div className="max-w-2xl">
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-5xl">
-            Свежий урожай этой недели
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-mocha sm:text-lg">
+          <h2 className={UI.typography.headlineLight}>Свежий урожай этой недели</h2>
+          <p className={`mt-4 ${UI.typography.bodyLight}`}>
             Обжариваем в четверг под заказ. Каждая пачка — с клапаном дегазации и датой обжарки.
           </p>
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {COFFEE_PRODUCTS.map((item) => (
-            <article
-              key={item.id}
-              className="flex flex-col justify-between rounded-card border border-sand bg-paper p-6"
-            >
+            <article key={item.id} className={UI.card.product}>
               <div>
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-control bg-oat">
                   <Image
@@ -40,24 +36,15 @@ export function CatalogSection() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover"
                   />
-                  <span className="absolute right-3 top-3 rounded-pill bg-ink/80 px-2.5 py-1 text-[11px] font-medium tracking-wide text-cream backdrop-blur-sm">
-                    {item.weight}
-                  </span>
+                  <span className={`absolute right-3 top-3 ${UI.chip.origin}`}>{item.weight}</span>
                 </div>
 
                 <div className="mt-5">
-                  <span className="text-xs font-medium uppercase tracking-wider text-mocha">
-                    {item.roast}
-                  </span>
-                  <h3 className="mt-1 font-serif text-xl font-medium text-bean sm:text-2xl">
-                    {item.name}
-                  </h3>
+                  <span className={`block ${UI.typography.label} text-mocha`}>{item.roast}</span>
+                  <h3 className={`mt-1 ${UI.typography.title}`}>{item.name}</h3>
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {item.notes.map((note) => (
-                      <span
-                        key={note}
-                        className="rounded-pill bg-oat px-3 py-1 text-xs font-medium text-bean"
-                      >
+                      <span key={note} className={UI.chip.note}>
                         {note}
                       </span>
                     ))}
@@ -66,14 +53,14 @@ export function CatalogSection() {
               </div>
 
               <div className="mt-8 flex items-center justify-between border-t border-sand pt-5">
-                <span className="font-serif text-2xl font-medium text-bean">
+                <span className={UI.typography.title}>
                   {item.price} <span className="font-sans text-sm uppercase text-mocha">BYN</span>
                 </span>
                 <a
                   href="#lead-form"
                   data-lead-interest="разовый заказ"
                   data-lead-comment={`Заказ: ${item.name} (${item.weight})`}
-                  className="rounded-pill bg-bean px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-roast"
+                  className={UI.button.action}
                 >
                   Выбрать
                 </a>

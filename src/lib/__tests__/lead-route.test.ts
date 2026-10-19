@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { POST } from "@/app/api/lead/route";
 import { clearStoredLeads } from "@/lib/lead-storage";
+import { HTTP_STATUS, LEAD_STATUS } from "@/constants/http";
 
 describe("POST /api/lead endpoint", () => {
   beforeEach(() => {
@@ -20,10 +21,10 @@ describe("POST /api/lead endpoint", () => {
     });
 
     const res = await POST(req);
-    expect(res.status).toBe(201);
+    expect(res.status).toBe(HTTP_STATUS.CREATED);
     const json = await res.json();
     expect(json.success).toBe(true);
-    expect(json.status).toBe("created");
+    expect(json.status).toBe(LEAD_STATUS.CREATED);
     expect(json.lead.name).toBe("Екатерина");
   });
 
@@ -39,7 +40,7 @@ describe("POST /api/lead endpoint", () => {
     });
 
     const res = await POST(req);
-    expect(res.status).toBe(400);
+    expect(res.status).toBe(HTTP_STATUS.BAD_REQUEST);
     const json = await res.json();
     expect(json.success).toBe(false);
     expect(json.errors).toBeDefined();
@@ -58,7 +59,7 @@ describe("POST /api/lead endpoint", () => {
       body: JSON.stringify(payload),
     });
     const res1 = await POST(req1);
-    expect(res1.status).toBe(201);
+    expect(res1.status).toBe(HTTP_STATUS.CREATED);
 
     const req2 = new Request("http://localhost/api/lead", {
       method: "POST",
@@ -66,9 +67,9 @@ describe("POST /api/lead endpoint", () => {
       body: JSON.stringify(payload),
     });
     const res2 = await POST(req2);
-    expect(res2.status).toBe(200);
+    expect(res2.status).toBe(HTTP_STATUS.OK);
     const json2 = await res2.json();
-    expect(json2.status).toBe("duplicate");
+    expect(json2.status).toBe(LEAD_STATUS.DUPLICATE);
     expect(json2.message).toContain("10 минут");
   });
 });

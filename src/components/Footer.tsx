@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ROASTERY } from "@/data/coffee";
+import { UI } from "@/styles/ui";
 
 export function Footer() {
   return (
     <footer id="contacts" className="border-t border-charcoal bg-ink py-16 text-cream">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className={UI.container}>
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <Link href="/" className="group inline-flex items-center gap-3">
@@ -13,25 +14,25 @@ export function Footer() {
                 Кварта
               </span>
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-soft">
+            <p className={`mt-4 max-w-sm ${UI.typography.bodySm}`}>
               Маленькая мастерская спешелти кофе в Минске. Обжариваем партиями по 5 кг с 2019 года.
               Свежее зерно каждую пятницу.
             </p>
           </div>
 
           <div className="md:col-span-4">
-            <span className="block text-xs font-semibold uppercase tracking-wider text-muted">
-              Мастерская и кофейня
-            </span>
+            <span className={`block ${UI.typography.label}`}>Мастерская и кофейня</span>
             <p className="mt-3 text-sm font-medium text-cream">{ROASTERY.address}</p>
-            <p className="mt-1 text-sm text-soft">Будни: {ROASTERY.workingHours.weekdays}</p>
-            <p className="mt-1 text-sm text-soft">Выходные: {ROASTERY.workingHours.weekends}</p>
+            <p className={`mt-1 ${UI.typography.bodySm}`}>
+              Будни: {ROASTERY.workingHours.weekdays}
+            </p>
+            <p className={`mt-1 ${UI.typography.bodySm}`}>
+              Выходные: {ROASTERY.workingHours.weekends}
+            </p>
           </div>
 
           <div className="md:col-span-3">
-            <span className="block text-xs font-semibold uppercase tracking-wider text-muted">
-              Связь
-            </span>
+            <span className={`block ${UI.typography.label}`}>Связь</span>
             <div className="mt-3 space-y-2 text-sm">
               <a
                 href={`tel:${ROASTERY.contacts.phone.replace(/[^\d+]/g, "")}`}

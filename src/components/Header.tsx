@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { UI } from "@/styles/ui";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-charcoal bg-ink/92 backdrop-blur-md">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <div className={`flex h-20 items-center justify-between ${UI.container}`}>
         <Link href="/" className="group flex items-center gap-3">
           <span className="h-3.5 w-3.5 rounded-full bg-crema transition-transform group-hover:scale-110" />
           <span className="font-serif text-2xl font-medium tracking-tight text-cream">Кварта</span>
@@ -28,10 +29,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <a
-            href="#lead-form"
-            className="inline-flex items-center justify-center rounded-pill bg-crema px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-caramel"
-          >
+          <a href="#lead-form" className={UI.button.primarySm}>
             Заказать
           </a>
         </div>

@@ -1,34 +1,29 @@
 import { ROASTERY } from "@/data/coffee";
+import { UI } from "@/styles/ui";
 
 export function DeliverySection() {
   return (
-    <section id="delivery" className="border-b border-sand bg-cream py-20 text-ink sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="delivery" className={UI.section.cream}>
+      <div className={UI.container}>
         <div className="max-w-2xl">
-          <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-5xl">
-            Доставка и самовывоз
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-mocha sm:text-lg">
+          <h2 className={UI.typography.headlineLight}>Доставка и самовывоз</h2>
+          <p className={`mt-4 ${UI.typography.bodyLight}`}>
             Упаковываем каждую пачку сразу после обжарки, чтобы в пятницу утром она отправилась к
             вам.
           </p>
         </div>
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">
-          <div className="flex flex-col justify-between rounded-panel border border-sand bg-paper p-8 sm:p-10">
+          <div className={UI.card.lightPanel}>
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-mocha">
-                Курьер по Минску
-              </span>
-              <h3 className="mt-2 font-serif text-2xl font-medium text-bean sm:text-3xl">
-                Доставка по пятницам
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-mocha sm:text-base">
+              <span className={`block ${UI.typography.label} text-mocha`}>Курьер по Минску</span>
+              <h3 className={`mt-2 ${UI.typography.title}`}>Доставка по пятницам</h3>
+              <p className={`mt-4 ${UI.typography.bodyLight}`}>
                 Развозим заказы курьером до двери каждую пятницу. Заказы, оформленные до среды
                 20:00, попадают в ближайшую пятничную доставку.
               </p>
-              <div className="mt-6 inline-flex items-center gap-2 rounded-pill bg-oat px-4 py-2 text-sm font-medium text-bean">
-                <span>Бесплатно при заказе от 50 BYN</span>
+              <div className="mt-6 inline-flex items-center gap-2">
+                <span className={UI.chip.note}>Бесплатно при заказе от 50 BYN</span>
               </div>
             </div>
             <p className="mt-8 border-t border-sand pt-4 text-xs text-mocha">
@@ -36,15 +31,13 @@ export function DeliverySection() {
             </p>
           </div>
 
-          <div className="flex flex-col justify-between rounded-panel border border-sand bg-paper p-8 sm:p-10">
+          <div className={UI.card.lightPanel}>
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-mocha">
+              <span className={`block ${UI.typography.label} text-mocha`}>
                 Мастерская и кофейня
               </span>
-              <h3 className="mt-2 font-serif text-2xl font-medium text-bean sm:text-3xl">
-                Самовывоз на Короля, 9
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-mocha sm:text-base">
+              <h3 className={`mt-2 ${UI.typography.title}`}>Самовывоз на Короля, 9</h3>
+              <p className={`mt-4 ${UI.typography.bodyLight}`}>
                 Вы можете забрать заказ лично в нашей мастерской, выпить чашку свежего фильтра и
                 пообщаться с обжарщиками.
               </p>

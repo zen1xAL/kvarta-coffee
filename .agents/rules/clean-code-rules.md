@@ -29,3 +29,8 @@ CLEAN CODE, SOLID, DRY, KISS, YAGNI, TYPESCRIPT, TESTING RULES
 - Keep sections as Server Components by default. Use use client ONLY on interactive components (LeadForm).
 - Use next/image with explicit width, height, and sizes for all images.
 - Load fonts via next/font/google (Playfair_Display and Manrope with cyrillic subset and display swap).
+
+6. NO MAGIC NUMBERS OR HARDCODED STYLES
+
+- Never hardcode HTTP status codes (200, 201, 400, 500) or response status strings. Import them from src/constants/http.ts.
+- Never scatter hardcoded hex colors, pixel radii, or clamp() font sizes across JSX components. Define all design tokens in src/app/globals.css and create a single standardized style dictionary in src/styles/ui.ts for all typography, buttons, cards, chips, inputs, and sections.

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { formatBelarusPhoneInput } from "./phone-format";
 import { captureUtmParams, getStoredUtmParams } from "./utm";
+import { HTTP_STATUS, LEAD_STATUS } from "@/constants/http";
 import type { LeadInterest } from "@/types/lead";
 
 export function useLeadForm() {
@@ -41,8 +42,8 @@ export function useLeadForm() {
         body: JSON.stringify({ name, phone, interest, comment, utm: getStoredUtmParams() }),
       });
       const data = await res.json();
-      if (res.status === 201) setStatus("success");
-      else if (data.status === "duplicate") {
+      if (res.status === HTTP_STATUS.CREATED) setStatus("success");
+      else if (data.status === LEAD_STATUS.DUPLICATE) {
         setStatus("duplicate");
         setErrorMsg(data.message);
       } else {
