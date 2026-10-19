@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Обжарка кофе «Кварта» (Минск) — Тестовое задание
 
-## Getting Started
+Лендинг для ремесленной мастерской спешелти кофе «Кварта» в Минске с работающей формой заявки, защитой от спама, сквозной UTM-аналитикой и редакционной дизайн-системой.
 
-First, run the development server:
+- **Стек:** Next.js 16 (App Router, Turbopack), React 19, TypeScript, Tailwind CSS v4, Vitest, Prettier, ESLint.
+- **Архитектурные правила:** Zero Comments Policy, строгая типизация (без `any`), лимит до 120 строк на файл, 100% покрытие ключевой логики тестами.
+
+---
+
+## 1. Архитектура бэкенда и хранилище заявок
+
+Эндпоинт `POST /api/lead` принимает заявки от клиентов и сохраняет их в хранилище.
+
+### Выбор хранилища
+
+- **Реализация:** `path.join(os.tmpdir(), 'kvarta-leads.json')` + автоматический in-memory `Map` fallback.
+- **Обоснование:** В serverless-окружениях (Vercel, AWS Lambda, Netlify) корневой диск доступен строго только для чтения (`EROFS`). Директория `os.tmpdir()` доступна на запись и позволяет сохранять файл между вызовами теплой лямбды. Если запись в файловую систему блокируется платформой, сервис бесшовно сохраняет лид в оперативной памяти инстанса без пятисотых ошибок для пользователя.
+- **Уведомления в Telegram:** При указании переменных `TELEGRAM_BOT_TOKEN` и `TELEGRAM_CHAT_ID` заявка мгновенно и неблокирующе дублируется в рабочий чат обжарщиков.
+
+### Валидация и защита от спама
+
+1. **Белорусские номера (+375):** Строгая проверка кодов операторов `25`, `29`, `33`, `44` и 7 цифр абонента. При некорректном вводе выводится понятная подсказка с примером.
+2. **Дедупликация на 10 минут:** Клиент блокирует повторные клики по кнопке отправки, а бэкенд отслеживает временную метку последней заявки с этого номера. Повторная отправка в течение 10 минут возвращает статус `200` с сообщением о том, что заявка уже принята и менеджер скоро свяжется (без создания спам-дублей).
+3. **Атрибуция рекламы (UTM):** Клиент перехватывает `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `referrer` и `page_url`, сохраняет их в `sessionStorage` и прикрепляет к заявке. Менеджер точно видит, с какой рекламы и объявления пришел клиент.
+
+---
+
+## 2. Раздел для проверяющего (Опыт работы с ИИ)
+
+### Что делали сами, а что ИИ
+
+- **Человек (архитектура, супервизия и контроль качества):**
+  - Определение общей дизайн-концепции: отказ от типовых шаблонных карточек в пользу темной журнальной эстетики ремесленной мастерской.
+  - Проектирование требований к бэкенду: алгоритм валидации номеров Беларуси, 10-минутная дедупликация, отказоустойчивое хранение в serverless.
+  - Контроль чистоты кода: введение лимита `<= 120 строк на файл`, политики Zero Comments и строгой типизации.
+- **ИИ (генерация, рутина и ассеты):**
+  - Черновая верстка интерфейсных блоков по спецификации.
+  - Написание юнит-тестов для Vitest (`validation`, `utm`, `lead-storage`, `lead-route`).
+  - Генерация предметных студийных фотографий упаковок и коробок кофе.
+
+### Где ИИ ошибся и как это заметили
+
+1. **Галлюцинации текста на сгенерированных изображениях:** В первых итерациях генератор изображений наносил на пачки надписи сторонних брендов («Assembly London», «El Salvador»). Заметили при инспекции сгенерированных ассетов. Ошибку устранили строгими промптами с явным указанием бренда `KVARTA` и регенерацией всех 4 позиций каталога.
+2. **Кэширование Next.js Image Optimizer:** При перезаписи файлов в `public/images/` Next.js и браузер продолжали отдавать закэшированные версии старых изображений. Заметили отсутствие визуальных изменений на экране. Устранили проблему очисткой `.next/cache` и внедрением версионированных имен файлов (`kvarta-*-v2.png`).
+3. **Зависший процесс на порту 3000:** Старый фоновый процесс `next start` перехватил порт `3000`, из-за чего dev-сервер запустился на `3001`, а браузер открывал устаревший билд. Обнаружили через сетевую диагностику `netstat`, процесс завершили.
+4. **Дублирование параметров в каталоге:** ИИ поместил «10 штук» одновременно в дескрипторы и в поле фасовки дрип-пакетов. Заметили при проверке карточек и исправили в словаре данных.
+
+### Что не успели или сделали бы иначе
+
+- В продакшене для долговременного хранения заявок подключили бы персистентную базу (PostgreSQL / Supabase / Redis) вместо `/tmp`, настроили автоматические вебхуки в CRM (AmoCRM / Bitrix24) и SMS-верификацию номера.
+- Реализовали бы динамическую корзину и онлайн-эквайринг (bePaid / Webpay), если бы бизнес-модель мастерской предполагала моментальную оплату картой онлайн.
+
+---
+
+## 3. Запуск и локальная разработка
 
 ```bash
+# Установка зависимостей
+npm install
+
+# Запуск тестов (14 unit-тестов Vitest)
+npm test
+
+# Проверка линтером
+npm run lint
+
+# Локальный dev-сервер
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Продакшен-сборка
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 4. Метрики Lighthouse (Mobile)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Accessibility:** 96 / 100
+- **Best Practices:** 100 / 100
+- **SEO:** 100 / 100
+- Отчет сохранен в корне проекта: `lighthouse-report.html`.
