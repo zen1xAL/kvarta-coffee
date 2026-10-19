@@ -18,9 +18,25 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Кварта — Обжарка кофе в Минске",
+  title: "Кварта — Обжарка спешелти кофе в Минске",
   description:
-    "Свежеобжаренный спешелти кофе маленькими партиями по 5 кг с 2019 года в Минске. Обжариваем по четвергам, доставляем по пятницам.",
+    "Маленькая мастерская в Минске. Обжариваем по четвергам партиями по 5 кг, доставляем по пятницам.",
+  openGraph: {
+    title: "Кварта — Свежеобжаренный кофе в Минске",
+    description:
+      "Свежая обжарка по четвергам, доставка по пятницам. Зерно от 26 BYN, подписка 54 BYN/мес.",
+    locale: "ru_BY",
+    type: "website",
+    url: "https://kvarta-coffee.by",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?q=80&w=1200&auto=format&fit=crop",
+        width: 1200,
+        height: 630,
+        alt: "Кварта — Обжарка кофе в Минске",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
