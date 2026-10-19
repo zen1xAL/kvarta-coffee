@@ -3,6 +3,7 @@
 import { useLeadForm } from "@/lib/use-lead-form";
 import { LeadFormNote } from "./LeadFormNote";
 import { LeadFormFeedback } from "./LeadFormFeedback";
+import { LeadFormSuccess } from "./LeadFormSuccess";
 import { UI } from "@/styles/ui";
 import type { LeadInterest } from "@/types/lead";
 
@@ -21,87 +22,89 @@ export function LeadFormSection() {
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
           <LeadFormNote />
 
-          <div className="lg:col-span-7">
+          <div className={`lg:col-span-7 ${UI.card.blank}`}>
             {form.status === "success" ? (
-              <div className="rounded-[4px] border border-[#333333] bg-[#262626] p-8">
-                <h3 className="font-serif text-[24px] font-normal italic text-[#ffffff]">
-                  Спасибо, заявка принята!
-                </h3>
-                <p className="mt-2 font-sans text-[15px] text-[#b3b3b3]">
-                  Мы получили ваш заказ и свяжемся с вами в течение 15 минут.
-                </p>
-                <button
-                  onClick={() => form.setStatus("idle")}
-                  className="mt-6 font-sans text-[13px] text-[#f6f7f2] underline"
-                >
-                  Отправить еще одну заявку
-                </button>
-              </div>
+              <LeadFormSuccess onReset={() => form.setStatus("idle")} />
             ) : (
-              <form onSubmit={form.handleSubmit} className="space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {INTERESTS.map((item) => (
-                    <button
-                      type="button"
-                      key={item.id}
-                      onClick={() => form.setInterest(item.id)}
-                      className={`rounded-[4px] border px-4 py-2.5 font-sans text-[13px] font-medium transition-colors ${
-                        form.interest === item.id
-                          ? "border-[#f6f7f2] bg-[#f6f7f2] text-[#0e1311]"
-                          : "border-[#333333] bg-[#262626] text-[#b3b3b3] hover:text-[#ffffff]"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
+              <form onSubmit={form.handleSubmit} className="space-y-5">
+                <div>
+                  <label className={UI.form.label}>01 / Формат заказа</label>
+                  <div className="mt-2 grid grid-cols-3 gap-1 rounded-[4px] border border-[#242a27] bg-[#0b0e0d] p-1">
+                    {INTERESTS.map((item) => (
+                      <button
+                        type="button"
+                        key={item.id}
+                        onClick={() => form.setInterest(item.id)}
+                        className={`rounded-[3px] py-2 font-sans text-[12px] font-medium transition-colors sm:text-[13px] ${
+                          form.interest === item.id
+                            ? "bg-[#f6f7f2] text-[#0e1311]"
+                            : "text-[#b3b3b3] hover:text-[#ffffff]"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className={UI.form.label}>02 / Ваше имя</label>
+                    <input
+                      type="text"
+                      value={form.name}
+                      onChange={(e) => form.setName(e.target.value)}
+                      placeholder="Алексей"
+                      className={UI.form.input}
+                    />
+                    {form.errors.name && (
+                      <p className="mt-1 text-xs text-[#dfdbca]">{form.errors.name}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className={UI.form.label}>03 / Телефон РБ</label>
+                    <input
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) => form.handlePhoneChange(e.target.value)}
+                      placeholder="+375 (29) 000-00-00"
+                      className={UI.form.input}
+                    />
+                    <p className="mt-1 font-sans text-[11px] text-[#808080]">
+                      Коды: 25, 29, 33, 44
+                    </p>
+                    {form.errors.phone && (
+                      <p className="mt-1 text-xs text-[#dfdbca]">{form.errors.phone}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div>
-                  <input
-                    type="text"
-                    value={form.name}
-                    onChange={(e) => form.setName(e.target.value)}
-                    placeholder="Ваше имя"
-                    className="w-full rounded-[4px] border border-[#333333] bg-[#262626] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#f6f7f2] focus:outline-none"
+                  <label className={UI.form.label}>04 / Сорт кофе, помол или вопрос</label>
+                  <textarea
+                    rows={3}
+                    value={form.comment}
+                    onChange={(e) => form.setComment(e.target.value)}
+                    placeholder="Например: Эфиопия Иргачеффе, смолоть под воронку V60"
+                    className={UI.form.input}
                   />
-                  {form.errors.name && (
-                    <p className="mt-1 text-xs text-[#dfdbca]">{form.errors.name}</p>
-                  )}
                 </div>
-
-                <div>
-                  <input
-                    type="tel"
-                    value={form.phone}
-                    onChange={(e) => form.handlePhoneChange(e.target.value)}
-                    placeholder="+375 (29) 000-00-00"
-                    className="w-full rounded-[4px] border border-[#333333] bg-[#262626] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#f6f7f2] focus:outline-none"
-                  />
-                  <p className="mt-1 font-sans text-[12px] text-[#808080]">
-                    Коды операторов РБ: 25, 29, 33, 44
-                  </p>
-                  {form.errors.phone && (
-                    <p className="mt-1 text-xs text-[#dfdbca]">{form.errors.phone}</p>
-                  )}
-                </div>
-
-                <textarea
-                  rows={3}
-                  value={form.comment}
-                  onChange={(e) => form.setComment(e.target.value)}
-                  placeholder="Сорт кофе, помол (под турку, воронку, чашку) или вопрос"
-                  className="w-full rounded-[4px] border border-[#333333] bg-[#262626] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#f6f7f2] focus:outline-none"
-                />
 
                 <LeadFormFeedback status={form.status} errorMsg={form.errorMsg} />
 
-                <button
-                  type="submit"
-                  disabled={form.submitting}
-                  className="w-full rounded-[4px] bg-[#f6f7f2] py-3.5 font-sans text-[14px] font-medium text-[#0e1311] transition-colors hover:bg-[#ffffff] disabled:opacity-50"
-                >
-                  {form.submitting ? "Отправка..." : "Отправить заявку"}
-                </button>
+                <div className="flex flex-col gap-4 border-t border-[#242a27] pt-5 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="font-sans text-[12px] text-[#808080]">
+                    Менеджер перезвонит для подтверждения заказа
+                  </p>
+                  <button
+                    type="submit"
+                    disabled={form.submitting}
+                    className="inline-flex shrink-0 items-center justify-center rounded-[4px] bg-[#f6f7f2] px-7 py-3.5 font-sans text-sm font-medium text-[#0e1311] transition-colors hover:bg-[#dfdbca] disabled:opacity-50"
+                  >
+                    {form.submitting ? "Отправка..." : "Отправить заявку →"}
+                  </button>
+                </div>
               </form>
             )}
           </div>

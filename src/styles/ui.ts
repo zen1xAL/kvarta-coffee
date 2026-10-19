@@ -52,6 +52,12 @@ export const UI = {
     panel: "rounded-[4px] border border-[#1a1a1a] bg-[#0e1311] p-6 sm:p-10 text-[#ffffff]",
     subscription: "rounded-[4px] border border-[#cfa53b] bg-[#1a1a1a] p-6 sm:p-10 text-[#ffffff]",
     linen: "rounded-[4px] border border-[#dfdbca] bg-[#f6f7f2] p-6 sm:p-10 text-[#0e1311]",
+    blank: "rounded-[4px] border border-[#242a27] bg-[#131816] p-6 md:p-9",
+  },
+  form: {
+    label: "block font-sans text-[11px] font-semibold uppercase tracking-[0.08em] text-[#808080]",
+    input:
+      "mt-2 w-full rounded-[4px] border border-[#242a27] bg-[#0b0e0d] px-4 py-2.5 font-sans text-[14px] text-[#ffffff] placeholder-[#555d59] focus:border-[#dfdbca] focus:outline-none transition-colors",
   },
   input:
     "w-full rounded-[4px] border border-[#333333] bg-[#1a1a1a] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] focus:border-[#faf080] focus:outline-none",

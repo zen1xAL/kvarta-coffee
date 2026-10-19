@@ -1,19 +1,15 @@
+import { Logo } from "@/components/Logo";
 import { ROASTERY } from "@/data/coffee";
 import { UI } from "@/styles/ui";
 
 export function Footer() {
   return (
-    <footer
-      id="contacts"
-      className="border-t border-[#1a1a1a] bg-[#000000] pt-16 pb-12 text-[#ffffff]"
-    >
+    <footer id="contacts" className="border-t border-[#1a1a1a] bg-[#000000] py-12 text-[#ffffff]">
       <div className={UI.container}>
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5 font-sans">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#808080]">
-              О МАСТЕРСКОЙ
-            </span>
-            <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-[#b3b3b3]">
+            <Logo />
+            <p className="mt-4 max-w-sm text-[14px] leading-relaxed text-[#b3b3b3]">
               Маленькая мастерская спешелти кофе в Минске. Обжариваем партиями по 5 кг с 2019 года.
               Свежее зерно каждую пятницу на пике вкуса.
             </p>
@@ -63,21 +59,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-[#1a1a1a] pt-8 font-sans text-[12px] text-[#808080] sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-[#1a1a1a] pt-6 font-sans text-[12px] text-[#808080] sm:flex-row">
           <p>© 2026 Мастерская «Кварта». Минск.</p>
           <p>Обжариваем по четвергам, доставляем по пятницам.</p>
-        </div>
-
-        <div className="mt-14 overflow-hidden select-none border-t border-[#1a1a1a] pt-10 sm:mt-18">
-          <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10">
-            <span className="font-serif text-[clamp(44px,10vw,140px)] font-light italic leading-none tracking-tight text-[#ffffff]">
-              Кварта
-            </span>
-            <span className="h-[clamp(36px,8.5vw,110px)] w-[2px] bg-white/30" />
-            <span className="font-serif text-[clamp(44px,10vw,140px)] font-normal not-italic leading-none tracking-tight text-[#ffffff]">
-              19
-            </span>
-          </div>
         </div>
       </div>
     </footer>
