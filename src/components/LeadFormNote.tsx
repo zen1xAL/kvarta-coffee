@@ -4,7 +4,7 @@ import { UI } from "@/styles/ui";
 
 export function LeadFormNote() {
   return (
-    <div className="flex flex-col lg:col-span-5">
+    <div className="flex flex-col">
       <span className={UI.typography.caption}>ПРЯМАЯ СВЯЗЬ С ОБЖАРЩИКАМИ</span>
       <h2 className={`${UI.typography.headingLg} mt-3`}>Оформить заказ или задать вопрос</h2>
       <p className="mt-4 font-sans text-[16px] leading-relaxed text-[#b3b3b3]">

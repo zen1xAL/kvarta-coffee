@@ -4,25 +4,23 @@ import { useLeadForm } from "@/lib/use-lead-form";
 import { LeadFormNote } from "./LeadFormNote";
 import { LeadFormFeedback } from "./LeadFormFeedback";
 import { LeadFormSuccess } from "./LeadFormSuccess";
+import { Reveal } from "./Reveal";
+import { INTERESTS, FORM_CONFIG } from "@/constants/lead-form";
 import { UI } from "@/styles/ui";
-import type { LeadInterest } from "@/types/lead";
-
-const INTERESTS: { id: LeadInterest; label: string }[] = [
-  { id: "подписка", label: "Подписка" },
-  { id: "разовый заказ", label: "Разовый заказ" },
-  { id: "вопрос", label: "Вопрос" },
-];
 
 export function LeadFormSection() {
   const form = useLeadForm();
+  const config = FORM_CONFIG[form.interest] ?? FORM_CONFIG["разовый заказ"];
 
   return (
     <section id="lead-form" className={UI.section.dark}>
       <div className={UI.container}>
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
-          <LeadFormNote />
+          <Reveal delay={0} className="lg:col-span-5">
+            <LeadFormNote />
+          </Reveal>
 
-          <div className="lg:col-span-7">
+          <Reveal delay={100} className="lg:col-span-7">
             {form.status === "success" ? (
               <div className="rounded-[4px] border border-[#333333] bg-[#262626] p-8">
                 <LeadFormSuccess onReset={() => form.setStatus("idle")} />
@@ -35,7 +33,7 @@ export function LeadFormSection() {
                       type="button"
                       key={item.id}
                       onClick={() => form.setInterest(item.id)}
-                      className={`rounded-[4px] border px-4 py-2.5 font-sans text-[13px] font-medium transition-colors ${
+                      className={`rounded-[4px] border px-4 py-2.5 font-sans text-[13px] font-medium transition-all duration-200 active:scale-[0.98] ${
                         form.interest === item.id
                           ? "border-[#f6f7f2] bg-[#f6f7f2] text-[#0e1311]"
                           : "border-[#333333] bg-[#262626] text-[#b3b3b3] hover:text-[#ffffff]"
@@ -80,7 +78,7 @@ export function LeadFormSection() {
                     rows={3}
                     value={form.comment}
                     onChange={(e) => form.setComment(e.target.value)}
-                    placeholder="Сорт кофе, помол (под турку, воронку, чашку) или вопрос"
+                    placeholder={config.placeholder}
                     className="w-full rounded-[4px] border border-[#333333] bg-[#262626] px-4 py-3 font-sans text-[15px] text-[#ffffff] placeholder-[#808080] transition-colors focus:border-white/50 focus:outline-none"
                   />
                 </div>
@@ -90,13 +88,13 @@ export function LeadFormSection() {
                 <button
                   type="submit"
                   disabled={form.submitting}
-                  className="w-full rounded-[4px] bg-[#f6f7f2] py-3.5 font-sans text-[14px] font-medium text-[#0e1311] transition-colors hover:bg-[#ffffff] disabled:opacity-50"
+                  className="w-full rounded-[4px] bg-[#f6f7f2] py-3.5 font-sans text-[14px] font-medium text-[#0e1311] transition-all duration-200 hover:bg-[#ffffff] active:scale-[0.98] disabled:opacity-50"
                 >
-                  {form.submitting ? "Отправка..." : "Отправить заявку"}
+                  {form.submitting ? "Отправка..." : config.buttonText}
                 </button>
               </form>
             )}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

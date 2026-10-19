@@ -50,19 +50,26 @@ export function HeroSection() {
               </span>
 
               <div className="mt-5 space-y-6">
-                {HERO_FEATURED.map((item) => (
-                  <div key={item.name}>
+                {HERO_FEATURED.map((item, index) => (
+                  <div
+                    key={item.name}
+                    className="hero-item-animate"
+                    style={{ animationDelay: `${index * 70 + 100}ms` }}
+                  >
                     <a
                       href="#lead-form"
                       data-lead-interest={item.interest}
                       data-lead-comment={item.comment}
-                      className="group inline-block"
+                      className="group inline-block transition-all duration-300 hover:translate-x-1.5"
                     >
                       <h2 className="font-serif text-[19px] font-light italic text-[#ffffff] transition-colors group-hover:text-[#dfdbca] sm:text-[21px]">
                         {item.name}
                       </h2>
-                      <p className="mt-0.5 font-sans text-[13px] text-[#b3b3b3] transition-colors group-hover:text-[#ffffff]">
-                        {item.action} →
+                      <p className="mt-0.5 flex items-center gap-1 font-sans text-[13px] text-[#b3b3b3] transition-colors group-hover:text-[#ffffff]">
+                        <span>{item.action}</span>
+                        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                          →
+                        </span>
                       </p>
                     </a>
                   </div>

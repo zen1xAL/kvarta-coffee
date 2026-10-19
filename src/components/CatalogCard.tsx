@@ -8,13 +8,13 @@ interface CatalogCardProps {
 export function CatalogCard({ item }: CatalogCardProps) {
   return (
     <article className="flex flex-col">
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] bg-[#efe3d2]">
+      <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-[4px] bg-[#efe3d2]">
         <Image
           src={item.image}
           alt={item.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
         />
       </div>
 
@@ -31,7 +31,7 @@ export function CatalogCard({ item }: CatalogCardProps) {
           href="#lead-form"
           data-lead-interest="разовый заказ"
           data-lead-comment={`Заказ: ${item.name} (${item.weight})`}
-          className="mt-4 inline-flex items-center rounded-[4px] bg-[#f6f7f2] px-4 py-2 font-sans text-xs font-medium text-[#0e1311] transition-colors hover:bg-[#ffffff]"
+          className="mt-4 inline-flex items-center rounded-[4px] bg-[#f6f7f2] px-4 py-2 font-sans text-xs font-medium text-[#0e1311] transition-all duration-200 hover:bg-[#ffffff] active:scale-[0.98]"
         >
           Выбрать — {item.price} BYN
         </a>

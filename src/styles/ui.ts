@@ -40,11 +40,11 @@ export const UI = {
   },
   button: {
     primary:
-      "inline-flex items-center justify-center rounded-[4px] bg-[#f6f7f2] px-6 py-3.5 font-sans text-[14px] font-medium text-[#0e1311] transition-colors hover:bg-[#faf080]",
+      "inline-flex items-center justify-center rounded-[4px] bg-[#f6f7f2] px-6 py-3.5 font-sans text-[14px] font-medium text-[#0e1311] transition-all duration-200 hover:bg-[#faf080] active:scale-[0.98]",
     primarySm:
-      "inline-flex items-center justify-center rounded-[4px] bg-[#f6f7f2] px-4 py-2 font-sans text-[13px] font-medium text-[#0e1311] transition-colors hover:bg-[#faf080]",
+      "inline-flex items-center justify-center rounded-[4px] bg-[#f6f7f2] px-4 py-2 font-sans text-[13px] font-medium text-[#0e1311] transition-all duration-200 hover:bg-[#faf080] active:scale-[0.98]",
     ghost:
-      "inline-flex items-center justify-center rounded-[4px] border border-[#333333] bg-transparent px-5 py-3 font-sans text-[14px] font-medium text-[#ffffff] transition-colors hover:border-[#b3b3b3] hover:text-[#ffffff]",
+      "inline-flex items-center justify-center rounded-[4px] border border-[#333333] bg-transparent px-5 py-3 font-sans text-[14px] font-medium text-[#ffffff] transition-all duration-200 hover:border-[#b3b3b3] hover:text-[#ffffff] active:scale-[0.98]",
   },
   card: {
     product:

@@ -34,7 +34,7 @@ export function Header() {
 
           <a
             href="#lead-form"
-            className="font-serif text-[15px] font-normal italic text-[#ffffff] transition-colors hover:text-[#dfdbca]"
+            className="font-serif text-[15px] font-normal italic text-[#ffffff] transition-all duration-200 hover:text-[#dfdbca] active:scale-[0.98]"
           >
             Оформить заказ →
           </a>

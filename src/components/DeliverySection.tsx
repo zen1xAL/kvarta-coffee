@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/Reveal";
 import { UI } from "@/styles/ui";
 
 const DELIVERY_CARDS = [
@@ -23,25 +24,25 @@ export function DeliverySection() {
   return (
     <section id="delivery" className="bg-[#f6f7f2] py-20 sm:py-28 text-[#0e1311]">
       <div className={UI.container}>
-        <div className="text-center">
+        <Reveal className="text-center">
           <h2 className="font-serif text-[32px] font-normal italic sm:text-[36px]">
             Доставка и самовывоз
           </h2>
           <p className="mt-1 font-sans text-[26px] font-normal tracking-tight text-[#0e1311] sm:text-[32px]">
             Минск, ул. Короля, 9
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          {DELIVERY_CARDS.map((card) => (
-            <div key={card.title} className="flex flex-col text-left">
+          {DELIVERY_CARDS.map((card, index) => (
+            <Reveal key={card.title} delay={index * 80} className="flex flex-col text-left">
               <h3 className="font-serif text-[20px] font-normal italic text-[#0e1311] sm:text-[22px]">
                 {card.title}
               </h3>
               <p className="mt-3 font-sans text-[14px] leading-relaxed text-[#4d4a31]">
                 {card.desc}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
